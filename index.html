@@ -10,9 +10,9 @@
   <meta name="robots" content="index,follow,max-image-preview:large">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta name="theme-color" content="#121414">
-  <link rel="canonical" href="https://studialuxe.vercel.app/">
-  <link rel="alternate" hreflang="ru-RU" href="https://studialuxe.vercel.app/">
-  <link rel="alternate" hreflang="x-default" href="https://studialuxe.vercel.app/">
+  <link rel="canonical" href="https://studio-lux.vercel.app/">
+  <link rel="alternate" hreflang="ru-RU" href="https://studio-lux.vercel.app/">
+  <link rel="alternate" hreflang="x-default" href="https://studio-lux.vercel.app/">
   <link rel="icon" href="favicon.ico" sizes="any">
   <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="192x192" href="assets/android-chrome-192x192.png">
@@ -23,15 +23,15 @@
   <meta property="og:site_name" content="Studio Luxe">
   <meta property="og:title" content="Работа вебкам-моделью — консультация студии и подбор вариантов">
   <meta property="og:description" content="Персональная консультация агента-продюсера и подбор подходящего формата для девушек 18+.">
-  <meta property="og:url" content="https://studialuxe.vercel.app/">
-  <meta property="og:image" content="https://studialuxe.vercel.app/assets/hero-img.png">
+  <meta property="og:url" content="https://studio-lux.vercel.app/">
+  <meta property="og:image" content="https://studio-lux.vercel.app/assets/hero-img.png">
   <meta property="og:image:width" content="1672">
   <meta property="og:image:height" content="941">
   <meta property="og:image:alt" content="Консультация агента Studio Luxe по выбору формата работы">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Работа вебкам-моделью — консультация студии и подбор вариантов">
   <meta name="twitter:description" content="Персональная консультация агента-продюсера и подбор подходящего формата для девушек 18+.">
-  <meta name="twitter:image" content="https://studialuxe.vercel.app/assets/hero-img.png">
+  <meta name="twitter:image" content="https://studio-lux.vercel.app/assets/hero-img.png">
   <meta name="twitter:image:alt" content="Консультация агента Studio Luxe по выбору формата работы">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -2287,7 +2287,7 @@
               <h3 id="quick-form-title"><strong>Уточнить доступные варианты</strong></h3>
               <p>Оставьте минимальные данные. Документы и чувствительные материалы на этом этапе не нужны.</p>
             </div>
-            <form class="inline-form" action="/api/consultation" method="post" data-consultation-form>
+            <form class="inline-form" action="/api/lead" method="post" data-consultation-form>
               <div class="compact-field"><label for="quick-name">Имя</label><input id="quick-name" name="name" type="text" maxlength="80" required></div>
               <div class="compact-field"><label for="quick-city">Город / страна</label><input id="quick-city" name="city" type="text" maxlength="100" required></div>
               <div class="compact-field"><label for="quick-format">Формат</label><select id="quick-format" name="work_format"><option value="compare">Хочу сравнить</option><option value="studio">Студия</option><option value="remote">Удаленно</option></select></div>
@@ -2534,7 +2534,7 @@
         <header class="section-heading section-heading--left"><div class="section-kicker">Следующий шаг без обязательств</div><h2 id="final-form-title"><strong>Получить консультацию и подходящие варианты</strong></h2><p>Заполните только данные для связи и первичного подбора. Форма не является заявлением о приеме на работу.</p></header>
         <div class="final-contact-grid">
           <div class="final-form-card">
-            <form action="/api/consultation" method="post" autocomplete="on" data-consultation-form>
+            <form action="/api/lead" method="post" autocomplete="on" data-consultation-form>
               <div class="field-grid">
                 <div class="compact-field"><label for="final-name">Имя или удобное обращение</label><input id="final-name" name="name" type="text" maxlength="80" required></div>
                 <div class="compact-field"><label for="final-contact">Телефон или username Telegram</label><input id="final-contact" name="contact" type="text" maxlength="120" required></div>
@@ -2669,7 +2669,7 @@
       <h2 class="dialog-title" id="consultation-title"><strong>Получить консультацию агента</strong></h2>
       <p class="dialog-text">Оставьте только данные, необходимые для связи. На первом этапе не отправляйте паспорт, банковские реквизиты или чувствительные материалы.</p>
 
-      <form class="short-form" action="/api/consultation" method="post" autocomplete="on" data-consultation-form>
+      <form class="short-form" action="/api/lead" method="post" autocomplete="on" data-consultation-form>
         <div class="form-field">
           <label for="consultation-name">Как к вам обращаться</label>
           <input id="consultation-name" name="name" type="text" autocomplete="name" maxlength="80" placeholder="Имя или удобное обращение" required>
