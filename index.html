@@ -10,28 +10,29 @@
   <meta name="robots" content="index,follow,max-image-preview:large">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta name="theme-color" content="#121414">
-  <link rel="canonical" href="https://studio-lux.vercel.app/">
-  <link rel="alternate" hreflang="ru-RU" href="https://studio-lux.vercel.app/">
-  <link rel="alternate" hreflang="x-default" href="https://studio-lux.vercel.app/">
-  <link rel="icon" href="favicon.ico" sizes="any">
-  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="192x192" href="assets/android-chrome-192x192.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+  <link rel="canonical" href="https://studialuxe.vercel.app/">
+  <link rel="alternate" hreflang="ru-RU" href="https://studialuxe.vercel.app/">
+  <link rel="alternate" hreflang="x-default" href="https://studialuxe.vercel.app/">
+  <link rel="icon" href="/favicon.ico?v=2" sizes="any">
+  <link rel="shortcut icon" href="/favicon.ico?v=2" type="image/x-icon">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=2">
+  <link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png?v=2">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=2">
   <link rel="preload" as="image" href="assets/hero-img.png" fetchpriority="high">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="ru_RU">
   <meta property="og:site_name" content="Studio Luxe">
   <meta property="og:title" content="Работа вебкам-моделью — консультация студии и подбор вариантов">
   <meta property="og:description" content="Персональная консультация агента-продюсера и подбор подходящего формата для девушек 18+.">
-  <meta property="og:url" content="https://studio-lux.vercel.app/">
-  <meta property="og:image" content="https://studio-lux.vercel.app/assets/hero-img.png">
+  <meta property="og:url" content="https://studialuxe.vercel.app/">
+  <meta property="og:image" content="https://studialuxe.vercel.app/assets/hero-img.png">
   <meta property="og:image:width" content="1672">
   <meta property="og:image:height" content="941">
   <meta property="og:image:alt" content="Консультация агента Studio Luxe по выбору формата работы">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Работа вебкам-моделью — консультация студии и подбор вариантов">
   <meta name="twitter:description" content="Персональная консультация агента-продюсера и подбор подходящего формата для девушек 18+.">
-  <meta name="twitter:image" content="https://studio-lux.vercel.app/assets/hero-img.png">
+  <meta name="twitter:image" content="https://studialuxe.vercel.app/assets/hero-img.png">
   <meta name="twitter:image:alt" content="Консультация агента Studio Luxe по выбору формата работы">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -43,9 +44,9 @@
     "@graph": [
       {
         "@type": "Organization",
-        "@id": "https://studio-lux.vercel.app/#organization",
+        "@id": "https://studialuxe.vercel.app/#organization",
         "name": "Studio Luxe",
-        "url": "https://studio-lux.vercel.app/",
+        "url": "https://studialuxe.vercel.app/",
         "telephone": "+7-800-001-01-20",
         "address": {
           "@type": "PostalAddress",
@@ -80,19 +81,19 @@
       },
       {
         "@type": "WebSite",
-        "@id": "https://studio-lux.vercel.app/#website",
-        "url": "https://studio-lux.vercel.app/",
+        "@id": "https://studialuxe.vercel.app/#website",
+        "url": "https://studialuxe.vercel.app/",
         "name": "Studio Luxe",
-        "publisher": {"@id": "https://studio-lux.vercel.app/#organization"},
+        "publisher": {"@id": "https://studialuxe.vercel.app/#organization"},
         "inLanguage": "ru-RU"
       },
       {
         "@type": "WebPage",
-        "@id": "https://studio-lux.vercel.app/#webpage",
-        "url": "https://studio-lux.vercel.app/",
+        "@id": "https://studialuxe.vercel.app/#webpage",
+        "url": "https://studialuxe.vercel.app/",
         "name": "Работа вебкам-моделью: консультация студии и подбор лучшего варианта",
-        "isPartOf": {"@id": "https://studio-lux.vercel.app/#website"},
-        "about": {"@id": "https://studio-lux.vercel.app/#organization"},
+        "isPartOf": {"@id": "https://studialuxe.vercel.app/#website"},
+        "about": {"@id": "https://studialuxe.vercel.app/#organization"},
         "inLanguage": "ru-RU"
       }
     ]
@@ -103,7 +104,7 @@
   {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    "@id": "https://studio-lux.vercel.app/#faq",
+    "@id": "https://studialuxe.vercel.app/#faq",
     "mainEntity": [
       {
         "@type": "Question",
@@ -551,6 +552,44 @@
     }
     .btn-secondary:hover { color: #ffe373; }
     .btn-secondary:hover::after { background: var(--primary-light); }
+    .hero-agent-link {
+      min-height: 48px;
+      gap: 11px;
+      padding-left: 0;
+      text-align: left;
+    }
+    .hero-agent-link::after { left: 48px; }
+    .hero-agent-avatar {
+      position: relative;
+      width: 38px;
+      height: 38px;
+      flex: 0 0 38px;
+      overflow: visible;
+      border: 2px solid rgba(244, 207, 82, 0.82);
+      border-radius: 50%;
+      background: #202626;
+      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.34);
+    }
+    .hero-agent-avatar img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      object-position: 50% 34%;
+      border-radius: inherit;
+    }
+    .hero-agent-avatar::after {
+      content: "";
+      position: absolute;
+      right: -1px;
+      bottom: 0;
+      width: 9px;
+      height: 9px;
+      border: 2px solid #141817;
+      border-radius: 50%;
+      background: #7bc796;
+      box-shadow: 0 0 0 2px rgba(123, 199, 150, 0.12);
+    }
     .hero-disclosure {
       max-width: 780px;
       margin-top: 24px;
@@ -789,6 +828,150 @@
     }
     .process-card-note strong { color: #bcb5a6; }
     .process-cta { display: flex; justify-content: center; margin-top: 38px; }
+
+    .agent-section {
+      position: relative;
+      overflow: hidden;
+      padding: 96px 0;
+      border-top: 1px solid rgba(212, 175, 55, 0.13);
+      background:
+        radial-gradient(circle at 88% 20%, rgba(212, 175, 55, 0.1), transparent 26%),
+        linear-gradient(145deg, #10191a 0%, #0d1314 55%, #111312 100%);
+    }
+    .agent-section::before {
+      content: "";
+      position: absolute;
+      top: -210px;
+      right: -170px;
+      width: 520px;
+      height: 520px;
+      border: 1px solid rgba(212, 175, 55, 0.08);
+      border-radius: 50%;
+      box-shadow: 0 0 0 92px rgba(255, 255, 255, 0.008), 0 0 0 184px rgba(255, 255, 255, 0.004);
+      pointer-events: none;
+    }
+    .agent-shell {
+      position: relative;
+      z-index: 1;
+      max-width: 1120px;
+      display: grid;
+      grid-template-columns: minmax(340px, 0.82fr) minmax(0, 1.18fr);
+      align-items: stretch;
+      gap: clamp(38px, 5vw, 76px);
+      margin: 0 auto;
+      padding: clamp(18px, 2.2vw, 28px);
+      border: 1px solid rgba(136, 177, 173, 0.2);
+      border-radius: 24px;
+      background:
+        radial-gradient(circle at 94% 8%, rgba(212, 175, 55, 0.09), transparent 28%),
+        linear-gradient(145deg, #203031 0%, #192728 54%, #152122 100%);
+      box-shadow: 0 30px 74px rgba(0, 0, 0, 0.34), inset 0 1px 0 rgba(255, 255, 255, 0.035);
+    }
+    .agent-portrait {
+      position: relative;
+      min-height: 500px;
+      overflow: hidden;
+      margin: 0;
+      border: 1px solid rgba(244, 207, 82, 0.19);
+      border-radius: 18px;
+      background: #182020;
+    }
+    .agent-portrait::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 55%, rgba(7, 11, 11, 0.78) 100%);
+      pointer-events: none;
+    }
+    .agent-portrait img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      object-position: 50% 42%;
+    }
+    .agent-portrait figcaption {
+      position: absolute;
+      z-index: 1;
+      right: 24px;
+      bottom: 22px;
+      left: 24px;
+      color: #fff8e8;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 1.45;
+    }
+    .agent-portrait figcaption span {
+      display: block;
+      margin-top: 4px;
+      color: #c9c1b2;
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+    }
+    .agent-content {
+      align-self: center;
+      padding: clamp(18px, 2vw, 28px) clamp(8px, 1vw, 16px) clamp(18px, 2vw, 28px) 0;
+    }
+    .agent-content .section-kicker { margin-bottom: 18px; }
+    .agent-content h2 {
+      max-width: 650px;
+      margin: 0;
+      color: #f5efe3;
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: clamp(34px, 3.45vw, 50px);
+      line-height: 1.08;
+      letter-spacing: -1.1px;
+    }
+    .agent-lead {
+      max-width: 650px;
+      margin: 22px 0 0;
+      color: #c1baad;
+      font-size: 14px;
+      line-height: 1.74;
+    }
+    .agent-lead strong { color: #fff4d8; }
+    .agent-points {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      margin: 26px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+    .agent-points li {
+      min-width: 0;
+      padding: 17px 15px;
+      border: 1px solid rgba(255, 255, 255, 0.065);
+      border-radius: 12px;
+      color: #969187;
+      background: rgba(7, 13, 14, 0.25);
+      font-size: 10.5px;
+      line-height: 1.58;
+    }
+    .agent-points strong {
+      display: block;
+      margin-bottom: 7px;
+      color: var(--primary-light);
+      font-size: 10px;
+      letter-spacing: 0.35px;
+      text-transform: uppercase;
+    }
+    .agent-actions {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 15px 20px;
+      margin-top: 27px;
+    }
+    .agent-actions p {
+      max-width: 275px;
+      margin: 0;
+      color: #858178;
+      font-size: 10px;
+      line-height: 1.58;
+    }
 
     .site-footer {
       border-top: 1px solid rgba(212, 175, 55, 0.15);
@@ -1731,6 +1914,10 @@
       .process-card { grid-column: span 2; }
       .process-card:nth-child(4) { grid-column: 2 / span 2; }
       .process-card:nth-child(5) { grid-column: 4 / span 2; }
+      .agent-shell { grid-template-columns: minmax(300px, 0.76fr) minmax(0, 1.24fr); gap: 38px; }
+      .agent-portrait { min-height: 480px; }
+      .agent-points { grid-template-columns: 1fr; }
+      .agent-points li { padding: 13px 15px; }
       .footer-main { grid-template-columns: 1.25fr repeat(3, minmax(130px, 0.75fr)); gap: 30px; }
     }
     @media (max-width: 960px) {
@@ -1781,6 +1968,10 @@
       .process-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .process-card, .process-card:nth-child(4) { grid-column: auto; }
       .process-card:nth-child(5) { grid-column: 1 / -1; width: calc(50% - 7px); justify-self: center; }
+      .agent-section { padding: 76px 0; }
+      .agent-shell { grid-template-columns: minmax(270px, 0.72fr) minmax(0, 1.28fr); gap: 28px; }
+      .agent-portrait { min-height: 470px; }
+      .agent-content { padding-right: 8px; }
       .footer-contact-bar { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .footer-main { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .footer-brand { grid-column: 1 / -1; }
@@ -1822,6 +2013,18 @@
       .hero-actions { display: grid; grid-template-columns: 1fr; gap: 5px; margin-top: 28px; }
       .btn-primary { width: 100%; }
       .btn-secondary { width: fit-content; min-height: 45px; }
+      .hero-agent-link { padding-left: 0; }
+      .agent-section { padding: 62px 0; }
+      .agent-shell { grid-template-columns: 1fr; gap: 0; padding: 10px; border-radius: 18px; }
+      .agent-portrait { min-height: 0; aspect-ratio: 4 / 3; border-radius: 13px; }
+      .agent-portrait img { object-position: 50% 35%; }
+      .agent-content { padding: 30px 12px 20px; }
+      .agent-content h2 { font-size: clamp(33px, 9.6vw, 43px); }
+      .agent-lead { margin-top: 18px; font-size: 13px; line-height: 1.7; }
+      .agent-points { grid-template-columns: 1fr; margin-top: 22px; }
+      .agent-actions { align-items: stretch; }
+      .agent-actions .btn { width: 100%; }
+      .agent-actions p { max-width: none; }
       .hero-disclosure { margin-top: 19px; font-size: 9.5px; }
       .visual-main { min-height: 235px; padding: 22px; }
       .camera-illustration { top: 10px; right: 10px; width: 66%; }
@@ -2036,11 +2239,11 @@
                 <path d="M5 12H19M14 7L19 12L14 17" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
             </button>
-            <button class="btn btn-secondary" type="button" data-open-consultation aria-haspopup="dialog">
+            <button class="btn btn-secondary hero-agent-link" type="button" data-open-consultation aria-haspopup="dialog">
+              <span class="hero-agent-avatar" aria-hidden="true">
+                <img src="assets/agent-photo.webp" width="768" height="733" alt="" decoding="async" fetchpriority="high">
+              </span>
               <strong>Задать вопрос агенту</strong>
-              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path d="M8 12H16M12 8V16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-              </svg>
             </button>
           </div>
 
@@ -2127,7 +2330,7 @@
           </div>
           <h2 id="process-title"><strong>Как мы помогаем начать</strong></h2>
           <p>
-            Разбираемся в вашей ситуации, затем сравниваем доступные условия и только после этого определяем следующий шаг. Без давления и без  передачи контактов третьей стороне.
+            Разбираемся в вашей ситуации, затем сравниваем доступные условия и только после этого определяем следующий шаг. Без давления и без передачи контактов третьей стороне.
           </p>
         </header>
 
@@ -2199,7 +2402,7 @@
               </span>
             </div>
             <h3><strong>Следующий шаг</strong></h3>
-            <p>Сопровождаем вас дальше и помогаем в дальшейшей работе.</p>
+            <p>Сопровождаем вас дальше и помогаем на следующих этапах.</p>
             <div class="process-card-note"><strong>Передача контакта:</strong> партнер получает данные только после вашего согласия.</div>
           </article>
         </div>
@@ -2211,6 +2414,44 @@
               <path d="M5 12H19M14 7L19 12L14 17" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="agent-section" aria-labelledby="agent-title">
+      <div class="container">
+        <div class="agent-shell">
+          <figure class="agent-portrait">
+            <img src="assets/agent-photo.webp" width="768" height="733" loading="lazy" decoding="async" alt="Менеджер Studio Luxe по работе с кандидатами">
+            <figcaption>
+              Менеджер по работе с кандидатами
+              <span>Ваш первый контакт в Studio Luxe</span>
+            </figcaption>
+          </figure>
+
+          <article class="agent-content">
+            <div class="section-kicker">Ваш менеджер</div>
+            <h2 id="agent-title"><strong>Есть человек, которому можно задать любой вопрос</strong></h2>
+            <p class="agent-lead">
+              На первом этапе вы общаетесь с менеджером Studio Luxe. Она уточнит, что для вас важно, поможет сравнить студийный и удаленный формат и заранее разберет вопросы о графике, выплатах, личных границах и собеседовании. <strong>Можно обратиться, даже если вы пока ничего не решили:</strong> консультация бесплатна и ни к чему не обязывает.
+            </p>
+
+            <ul class="agent-points" aria-label="Принципы консультации">
+              <li><strong>Без неловкости</strong>Можно задать прямой вопрос и получить спокойное объяснение без оценки и давления.</li>
+              <li><strong>По вашим критериям</strong>Обсудим город, график, опыт и допустимый формат, чтобы не предлагать заведомо неподходящие варианты.</li>
+              <li><strong>Под вашим контролем</strong>Контакт передается конкретному партнеру только после выбора варианта и вашего согласия.</li>
+            </ul>
+
+            <div class="agent-actions">
+              <button class="btn btn-primary" type="button" data-open-consultation aria-haspopup="dialog">
+                <strong>Задать вопрос менеджеру</strong>
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M5 12H19M14 7L19 12L14 17" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+              <p>Укажите удобный способ связи — менеджер ответит по нему и объяснит дальнейшие шаги.</p>
+            </div>
+          </article>
         </div>
       </div>
     </section>
