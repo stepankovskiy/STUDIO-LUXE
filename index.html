@@ -1295,32 +1295,38 @@
     .compact-field textarea:focus { border-color: rgba(212, 175, 55, 0.55); box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.07); }
     .inline-consents { display: grid; grid-column: 1 / -1; gap: 8px; margin-top: 4px; }
     .comparison-wrap {
-      overflow-x: auto;
+      overflow: hidden;
       border: 1px solid rgba(255, 255, 255, 0.07);
       border-radius: var(--radius-md);
       background: #171919;
-      scrollbar-color: var(--primary-dark) #242626;
     }
-    .comparison-table { width: 100%; min-width: 1160px; border-collapse: collapse; }
+    .comparison-table { width: 100%; table-layout: fixed; border-collapse: collapse; }
     .comparison-table th,
     .comparison-table td {
-      padding: 15px 14px;
+      padding: 18px 16px;
       text-align: left;
       vertical-align: top;
       border-bottom: 1px solid rgba(255, 255, 255, 0.055);
       color: #a69f94;
-      font-size: 9.5px;
-      line-height: 1.5;
+      overflow-wrap: anywhere;
+      font-size: 11px;
+      line-height: 1.55;
     }
     .comparison-table th {
       color: #e6dfd2;
       background: rgba(212, 175, 55, 0.055);
-      font-size: 8.5px;
+      font-size: 9px;
       letter-spacing: 0.4px;
       text-transform: uppercase;
     }
     .comparison-table tbody tr:last-child td { border-bottom: 0; }
     .comparison-table td:first-child { color: #f0eadf; font-weight: 700; }
+    .comparison-table th:first-child { width: 14%; }
+    .comparison-table th:nth-child(2) { width: 20%; }
+    .comparison-table th:nth-child(3) { width: 14%; }
+    .comparison-table th:nth-child(4) { width: 17%; }
+    .comparison-table th:nth-child(5) { width: 17%; }
+    .comparison-table th:nth-child(6) { width: 18%; }
     .format-card { min-height: 330px; }
     .format-icon {
       width: 44px;
@@ -1410,6 +1416,46 @@
     .faq-item summary::after { content: "+"; flex: 0 0 auto; color: var(--primary-light); font-size: 21px; font-weight: 400; }
     .faq-item[open] summary::after { content: "−"; }
     .faq-item p { margin: 0; padding: 0 18px 18px; color: #9e988e; font-size: 10.5px; line-height: 1.7; }
+    .service-cities {
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      background: #0d1010;
+    }
+    .service-cities-inner { padding-top: 18px; padding-bottom: 18px; }
+    .service-cities details {
+      color: #8f8a81;
+      font-size: 10px;
+      line-height: 1.6;
+    }
+    .service-cities summary {
+      width: fit-content;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      list-style: none;
+      color: #8f8a81;
+      font-size: 9.5px;
+      font-weight: 700;
+      letter-spacing: 0.25px;
+    }
+    .service-cities summary::-webkit-details-marker { display: none; }
+    .service-cities summary::after { content: "+"; color: var(--primary-light); font-size: 15px; }
+    .service-cities details[open] summary::after { content: "−"; }
+    .city-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin: 14px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+    .city-list li {
+      padding: 5px 8px;
+      border: 1px solid rgba(255, 255, 255, 0.055);
+      border-radius: 6px;
+      color: #817d75;
+      background: rgba(255, 255, 255, 0.018);
+    }
     .final-contact-grid {
       display: grid;
       grid-template-columns: minmax(280px, 0.75fr) minmax(0, 1.25fr);
@@ -2027,6 +2073,53 @@
       .agent-actions { align-items: stretch; }
       .agent-actions .btn { width: 100%; }
       .agent-actions p { max-width: none; }
+      .comparison-wrap { overflow: visible; border: 0; background: transparent; box-shadow: none; }
+      .comparison-table,
+      .comparison-table tbody,
+      .comparison-table tr,
+      .comparison-table td { display: block; width: 100%; }
+      .comparison-table { table-layout: auto; }
+      .comparison-table thead {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        clip: rect(0 0 0 0);
+        clip-path: inset(50%);
+        white-space: nowrap;
+      }
+      .comparison-table tbody { display: grid; gap: 12px; }
+      .comparison-table tr {
+        overflow: hidden;
+        border: 1px solid rgba(136, 177, 173, 0.17);
+        border-radius: 13px;
+        background: linear-gradient(145deg, #203031 0%, #192728 54%, #152122 100%);
+        box-shadow: 0 14px 34px rgba(0, 0, 0, 0.22);
+      }
+      .comparison-table td {
+        display: grid;
+        grid-template-columns: minmax(104px, 0.55fr) minmax(0, 1.45fr);
+        gap: 13px;
+        padding: 12px 14px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.055);
+        font-size: 11px;
+      }
+      .comparison-table td::before {
+        content: attr(data-label);
+        color: #d1c9bb;
+        font-size: 8.5px;
+        font-weight: 800;
+        letter-spacing: 0.35px;
+        text-transform: uppercase;
+      }
+      .comparison-table td:first-child {
+        color: #fff5df;
+        background: rgba(212, 175, 55, 0.08);
+        font-size: 14px;
+      }
+      .comparison-table tbody tr:last-child td:not(:last-child) { border-bottom: 1px solid rgba(255, 255, 255, 0.055); }
+      .comparison-table td:last-child { border-bottom: 0; }
+      .service-cities-inner { padding-top: 15px; padding-bottom: 15px; }
       .hero-disclosure { margin-top: 19px; font-size: 9.5px; }
       .visual-main { min-height: 235px; padding: 22px; }
       .camera-illustration { top: 10px; right: 10px; width: 66%; }
@@ -2580,13 +2673,13 @@
           </header>
           <a class="text-link" href="#how-to-choose">Как проходит подбор →</a>
         </div>
-        <div class="comparison-wrap" role="region" aria-label="Таблица сравнения вариантов" tabindex="0">
+        <div class="comparison-wrap" role="region" aria-label="Таблица сравнения вариантов">
           <table class="comparison-table">
-            <thead><tr><th>Формат</th><th>Рабочее место</th><th>Что требуется</th><th>Оборудование</th><th>График</th><th>Обучение и поддержка</th><th>Вознаграждение и выплаты</th><th>Аккаунт</th><th>Приватность</th><th>Кому подходит</th><th>Что уточнить</th></tr></thead>
+            <thead><tr><th>Формат</th><th>Место и техника</th><th>График</th><th>Поддержка</th><th>Выплаты</th><th>Приватность</th></tr></thead>
             <tbody>
-              <tr><td><strong>Работа в студии</strong></td><td>Подготовленное помещение по адресу студии</td><td>18+, возможность приезжать на смены и соблюдать согласованный режим</td><td>Компьютер, камера, свет и фон обычно предоставляет студия; состав техники нужно подтвердить</td><td>Смены, их длительность и минимальная нагрузка устанавливаются конкретной студией</td><td>Может включать обучение, администратора, куратора, переводчика и техническую помощь</td><td>Доля, база расчета, валюта, порог и периодичность зависят от студии и платформы</td><td>До регистрации нужно узнать владельца профиля, доступы и порядок передачи или закрытия</td><td>Псевдоним и геоблокировка снижают отдельные риски, но не дают полной анонимности</td><td>Новичкам и тем, кому нужны готовое рабочее место и поддержка команды</td><td>Адрес, оформление, график, долю, удержания, правила контента и прекращения работы</td></tr>
-              <tr><td><strong>Удаленно из дома</strong></td><td>Собственная отдельная комната или подготовленная зона</td><td>18+, стабильный интернет, подходящее помещение и самостоятельная организация работы</td><td>Обычно нужны собственные компьютер, камера, свет и звук; требования различаются по платформам</td><td>Может быть гибким, но студия или платформа могут устанавливать минимальное время онлайн</td><td>Вводное обучение и поддержка возможны дистанционно; часы доступности команды уточняются заранее</td><td>Формула рассчитывается по условиям платформы и партнера; расходы на технику и связь несет выбранная сторона по договоренности</td><td>Важно заранее определить, кто регистрирует аккаунт и у кого остаются доступы</td><td>Больше контроля над помещением, но ответственность за фон, геолокацию и защиту личных данных выше</td><td>Тем, у кого есть отдельное пространство, техника и достаточная самодисциплина</td><td>Доступность по стране, требования к интернету, расходы, техподдержку и восстановление аккаунта</td></tr>
-              <tr><td><strong>Работа со смартфона</strong></td><td>Собственное помещение или мобильная рабочая зона</td><td>18+, поддерживаемое устройство, стабильная связь и формат, разрешенный конкретной площадкой</td><td>Современный смартфон, устойчивое крепление, свет, зарядка и при необходимости внешний звук</td><td>Зависит от приложения и условий партнера; мобильный формат поддерживается не всеми площадками</td><td>Настройка проходит удаленно, а набор инструментов и возможности сопровождения могут быть ограничены</td><td>Принцип расчета зависит от площадки; мобильный формат сам по себе не гарантирует иной уровень дохода</td><td>Нужно проверить, кто создает профиль, управляет доступами и получает уведомления</td><td>Важно контролировать разрешения приложения, уведомления, фон и попадание личных деталей в кадр</td><td>Тем, кто хочет начать без компьютера и готов учитывать технические ограничения</td><td>Поддержку устройства, качество трансляции, правила платформы, комиссии и доступные функции</td></tr>
+              <tr><td data-label="Формат"><strong>Работа в студии</strong></td><td data-label="Место и техника">Готовое рабочее место: компьютер, камера, свет и фон. Нужно приезжать в студию.</td><td data-label="График">Смены и минимальная нагрузка устанавливаются студией.</td><td data-label="Поддержка">Обучение, администратор и техническая помощь — по условиям студии.</td><td data-label="Выплаты">Заранее уточняются процент, удержания, сроки и способ выплаты.</td><td data-label="Приватность">Псевдоним и геоблокировка снижают риски, но не гарантируют анонимность.</td></tr>
+              <tr><td data-label="Формат"><strong>Удаленно из дома</strong></td><td data-label="Место и техника">Отдельная зона, стабильный интернет, собственные компьютер, камера и свет.</td><td data-label="График">Обычно гибче, но возможны требования к минимальному времени онлайн.</td><td data-label="Поддержка">Обучение и техническая помощь предоставляются дистанционно.</td><td data-label="Выплаты">Формула зависит от платформы и партнера; расходы на технику уточняются отдельно.</td><td data-label="Приватность">Больше контроля над помещением, но выше личная ответственность за фон и данные.</td></tr>
+              <tr><td data-label="Формат"><strong>Работа со смартфона</strong></td><td data-label="Место и техника">Совместимый смартфон, стабильная связь, крепление, свет и зарядка.</td><td data-label="График">Зависит от приложения; мобильный формат поддерживается не всеми площадками.</td><td data-label="Поддержка">Настройка проходит удаленно, набор инструментов может быть ограничен.</td><td data-label="Выплаты">Рассчитываются по правилам площадки; телефон сам по себе не меняет формулу дохода.</td><td data-label="Приватность">Нужно контролировать разрешения приложения, уведомления, фон и детали в кадре.</td></tr>
             </tbody>
           </table>
         </div>
@@ -2803,6 +2896,17 @@
             </div>
           </div>
         </div>
+      </div>
+    </section>
+
+    <section class="service-cities" aria-label="География консультаций">
+      <div class="container service-cities-inner">
+        <details>
+          <summary>Города, в которых можно получить консультацию</summary>
+          <ul class="city-list">
+            <li>Абакан</li><li>Анадырь</li><li>Архангельск</li><li>Астрахань</li><li>Барнаул</li><li>Белгород</li><li>Биробиджан</li><li>Благовещенск</li><li>Брянск</li><li>Великий Новгород</li><li>Владивосток</li><li>Владикавказ</li><li>Владимир</li><li>Волгоград</li><li>Вологда</li><li>Воронеж</li><li>Гатчина</li><li>Горно-Алтайск</li><li>Грозный</li><li>Донецк</li><li>Екатеринбург</li><li>Запорожье</li><li>Иваново</li><li>Ижевск</li><li>Иркутск</li><li>Йошкар-Ола</li><li>Казань</li><li>Калининград</li><li>Калуга</li><li>Кемерово</li><li>Киров</li><li>Кострома</li><li>Красногорск</li><li>Краснодар</li><li>Красноярск</li><li>Курган</li><li>Курск</li><li>Кызыл</li><li>Липецк</li><li>Луганск</li><li>Магадан</li><li>Магас</li><li>Майкоп</li><li>Махачкала</li><li>Москва</li><li>Мурманск</li><li>Нальчик</li><li>Нарьян-Мар</li><li>Нижний Новгород</li><li>Новосибирск</li><li>Омск</li><li>Оренбург</li><li>Орёл</li><li>Пенза</li><li>Пермь</li><li>Петрозаводск</li><li>Петропавловск-Камчатский</li><li>Псков</li><li>Ростов-на-Дону</li><li>Рязань</li><li>Салехард</li><li>Самара</li><li>Санкт-Петербург</li><li>Саранск</li><li>Саратов</li><li>Севастополь</li><li>Симферополь</li><li>Смоленск</li><li>Ставрополь</li><li>Сыктывкар</li><li>Тамбов</li><li>Тверь</li><li>Томск</li><li>Тула</li><li>Тюмень</li><li>Улан-Удэ</li><li>Ульяновск</li><li>Уфа</li><li>Хабаровск</li><li>Ханты-Мансийск</li><li>Херсон</li><li>Чебоксары</li><li>Челябинск</li><li>Черкесск</li><li>Чита</li><li>Элиста</li><li>Южно-Сахалинск</li><li>Якутск</li><li>Ярославль</li>
+          </ul>
+        </details>
       </div>
     </section>
 
