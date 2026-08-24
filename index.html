@@ -2270,7 +2270,7 @@
       </nav>
 
       <div class="header-actions">
-        
+        <a class="header-phone" href="tel:+78000010120" aria-label="Позвонить по федеральному номеру">8 (800) 001-01-20</a>
         <button class="header-cta" type="button" data-open-consultation aria-haspopup="dialog">
           <strong>Получить консультацию</strong>
           <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -2334,7 +2334,6 @@
                 <path d="M5 12H19M14 7L19 12L14 17" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
             </button>
-            <!-- Замените your_agent_username на имя пользователя вашего Telegram-аккаунта -->
             <a class="btn btn-secondary hero-agent-link" href="https://t.me/NatashaRomanova_studio_luxe" target="_blank" rel="noopener noreferrer" aria-label="Задать вопрос агенту в Telegram">
               <span class="hero-agent-avatar" aria-hidden="true">
                 <img src="assets/agent-photo.webp" width="768" height="733" alt="" decoding="async" fetchpriority="high">
@@ -2527,7 +2526,7 @@
 
           <article class="agent-content">
             <div class="section-kicker">Ваш менеджер</div>
-            <h2 id="agent-title"><strong>Есть человек, которому можно задать вопрос</strong></h2>
+            <h2 id="agent-title"><strong>Есть человек, которому можно задать любой вопрос</strong></h2>
             <p class="agent-lead">
               На первом этапе вы общаетесь с менеджером Studio Luxe. Она уточнит, что для вас важно, поможет сравнить студийный и удаленный формат и заранее разберет вопросы о графике, выплатах, личных границах и собеседовании. <strong>Можно обратиться, даже если вы пока ничего не решили:</strong> консультация бесплатна и ни к чему не обязывает.
             </p>
@@ -2539,13 +2538,13 @@
             </ul>
 
             <div class="agent-actions">
-              <button class="btn btn-primary" type="button" data-open-consultation aria-haspopup="dialog">
+              <a class="btn btn-primary" href="https://t.me/NatashaRomanova_studio_luxe" target="_blank" rel="noopener noreferrer" aria-label="Написать менеджеру Studio Luxe в Telegram">
                 <strong>Задать вопрос менеджеру</strong>
                 <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
                   <path d="M5 12H19M14 7L19 12L14 17" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
-              </button>
-              <p>Укажите удобный способ связи — менеджер ответит по нему и объяснит дальнейшие шаги.</p>
+              </a>
+              <p>Напишите менеджеру в Telegram — она ответит на вопросы и объяснит дальнейшие шаги.</p>
             </div>
           </article>
         </div>
@@ -2616,31 +2615,6 @@
           </article>
         </div>
 
-        <p></p>
-<p></p>
-        <section class="inline-form-section" aria-labelledby="quick-form-title">
-          <div class="inline-form-head">
-            <div>
-              <h3 id="quick-form-title"><strong>Уточнить доступные варианты</strong></h3>
-              <p>Оставьте минимальные данные. Документы и чувствительные материалы на этом этапе не нужны.</p>
-            </div>
-            <form class="inline-form" action="/api/lead" method="post" data-consultation-form>
-              <div class="compact-field"><label for="quick-name">Имя</label><input id="quick-name" name="name" type="text" maxlength="80" required></div>
-              <div class="compact-field"><label for="quick-city">Город / страна</label><input id="quick-city" name="city" type="text" maxlength="100" required></div>
-              <div class="compact-field"><label for="quick-format">Формат</label><select id="quick-format" name="work_format"><option value="compare">Хочу сравнить</option><option value="studio">Студия</option><option value="remote">Удаленно</option></select></div>
-              <div class="compact-field"><label for="quick-contact">Телефон / Telegram</label><input id="quick-contact" name="contact" type="text" maxlength="120" required></div>
-              <input type="hidden" name="source" value="homepage_quick_form">
-              <div class="form-honeypot" aria-hidden="true"><label for="quick-website">Не заполняйте это поле</label><input id="quick-website" name="website" type="text" tabindex="-1" autocomplete="off"></div>
-              <button class="btn btn-primary" type="submit"><strong>Получить варианты</strong></button>
-              <div class="inline-consents">
-                <label class="check-row"><input type="checkbox" name="age_confirmed" value="yes" required><span><strong>Мне исполнилось 18 лет</strong>.</span></label>
-                <label class="check-row"><input type="checkbox" name="privacy_consent" value="yes" required><span>Я даю <a href="personal-data-consent.html" target="_blank" rel="noopener">согласие на обработку персональных данных</a> для ответа на обращение. Контакт не передается партнеру автоматически.</span></label>
-                <p class="form-privacy-note">Порядок обработки и защиты данных описан в <a href="privacy-policy.html" target="_blank" rel="noopener">политике конфиденциальности</a>.</p>
-              </div>
-              <p class="form-feedback" aria-live="polite" hidden></p>
-            </form>
-          </div>
-        </section>
       </div>
     </section>
 
@@ -2684,6 +2658,30 @@
           </table>
         </div>
         <aside class="data-notice"><strong>Важно:</strong> таблица сравнивает организационные форматы, а не обещает одинаковые условия во всех студиях. Вид оформления, график, выплаты, правила аккаунта и доступная поддержка подтверждаются на собеседовании до регистрации и первой смены.</aside>
+
+        <section class="inline-form-section" aria-labelledby="quick-form-title">
+          <div class="inline-form-head">
+            <div>
+              <h3 id="quick-form-title"><strong>Уточнить доступные варианты</strong></h3>
+              <p>Оставьте минимальные данные. Документы и чувствительные материалы на этом этапе не нужны.</p>
+            </div>
+            <form class="inline-form" action="/api/lead" method="post" data-consultation-form>
+              <div class="compact-field"><label for="quick-name">Имя</label><input id="quick-name" name="name" type="text" maxlength="80" required></div>
+              <div class="compact-field"><label for="quick-city">Город / страна</label><input id="quick-city" name="city" type="text" maxlength="100" required></div>
+              <div class="compact-field"><label for="quick-format">Формат</label><select id="quick-format" name="work_format"><option value="compare">Хочу сравнить</option><option value="studio">Студия</option><option value="remote">Удаленно</option></select></div>
+              <div class="compact-field"><label for="quick-contact">Телефон или username в Telegram</label><input id="quick-contact" name="contact" type="text" maxlength="120" required></div>
+              <input type="hidden" name="source" value="homepage_quick_form">
+              <div class="form-honeypot" aria-hidden="true"><label for="quick-website">Не заполняйте это поле</label><input id="quick-website" name="website" type="text" tabindex="-1" autocomplete="off"></div>
+              <button class="btn btn-primary" type="submit"><strong>Получить варианты</strong></button>
+              <div class="inline-consents">
+                <label class="check-row"><input type="checkbox" name="age_confirmed" value="yes" required><span><strong>Мне исполнилось 18 лет</strong>.</span></label>
+                <label class="check-row"><input type="checkbox" name="privacy_consent" value="yes" required><span>Я даю <a href="personal-data-consent.html" target="_blank" rel="noopener">согласие на обработку персональных данных</a> для ответа на обращение. Контакт не передается партнеру автоматически.</span></label>
+                <p class="form-privacy-note">Порядок обработки и защиты данных описан в <a href="privacy-policy.html" target="_blank" rel="noopener">политике конфиденциальности</a>.</p>
+              </div>
+              <p class="form-feedback" aria-live="polite" hidden></p>
+            </form>
+          </div>
+        </section>
       </div>
     </section>
 
@@ -2738,7 +2736,7 @@
 
     <section class="content-section" id="calculator" aria-labelledby="calculator-title">
       <div class="container">
-        <header class="section-heading section-heading--left"><div class="section-kicker">Демонстративный расчет</div><h2 id="calculator-title"><strong>Рассчитать возможный сценарий дохода</strong></h2><p>Введите данные. Калькулятор показывает математику сценария, а не прогноз и не обещание фактического результата.</p></header>
+        <header class="section-heading section-heading--left"><div class="section-kicker">Иллюстративный расчет</div><h2 id="calculator-title"><strong>Рассчитать возможный сценарий дохода</strong></h2><p>Введите данные. Калькулятор показывает математику сценария, а не прогноз и не обещание фактического результата.</p></header>
         <div class="calculator-shell">
           <form class="calculator-panel" id="income-calculator">
             <div class="calculator-fields">
@@ -2823,14 +2821,13 @@
             <p>Примеры показывают разный уровень оснащения. Фактическая обстановка, техника и доступное пространство зависят от конкретной студии или домашнего формата.</p>
           </div>
           <div class="workplace-grid">
-            
-            <figure class="workplace-card">
-              <div class="workplace-photo"><img src="assets/workplace-home-dark.webp" width="1122" height="1402" loading="lazy" decoding="async" alt="Домашняя студия с двумя мониторами, камерой, микрофоном, кольцевой лампой и софтбоксами"></div>
-              <figcaption><strong>Домашняя студия</strong><span>Подготовленная зона с несколькими источниками света.</span></figcaption>
-            </figure>
             <figure class="workplace-card">
               <div class="workplace-photo"><img src="assets/workplace-home-light.webp" width="1122" height="1402" loading="lazy" decoding="async" alt="Светлое домашнее рабочее место с компьютером, камерой, микрофоном, кольцевой лампой и софтбоксом"></div>
               <figcaption><strong>Домашний формат</strong><span>Компьютер, камера, микрофон и отдельный свет.</span></figcaption>
+            </figure>
+            <figure class="workplace-card">
+              <div class="workplace-photo"><img src="assets/workplace-home-dark.webp" width="1122" height="1402" loading="lazy" decoding="async" alt="Домашняя студия с двумя мониторами, камерой, микрофоном, кольцевой лампой и софтбоксами"></div>
+              <figcaption><strong>Домашняя студия</strong><span>Подготовленная зона с несколькими источниками света.</span></figcaption>
             </figure>
             <figure class="workplace-card">
               <div class="workplace-photo"><img src="assets/workplace-professional-studio.webp" width="971" height="1619" loading="lazy" decoding="async" alt="Профессиональная студия с отдельными оборудованными рабочими комнатами, компьютерами, камерами и освещением"></div>
@@ -2843,7 +2840,7 @@
 
     <section class="content-section content-section--alt" id="faq" aria-labelledby="faq-title">
       <div class="container">
-        <header class="section-heading section-heading--left"><div class="section-kicker">Прямые ответы</div><h2 id="faq-title"><strong>Частые вопросы</strong></h2><p>То, о чем часто спрашивают девушки.</p></header>
+        <header class="section-heading section-heading--left"><div class="section-kicker">Прямые ответы</div><h2 id="faq-title"><strong>Частые вопросы</strong></h2><p>Ответы находятся в HTML страницы и доступны без запуска сценариев. Условия конкретной организации всегда подтверждаются отдельно.</p></header>
         <div class="faq-list">
           <details class="faq-item"><summary>Кто вы: студия, агентство или агент-продюсер?</summary><p>Studio Luxe консультирует совершеннолетних кандидатов, помогает сравнить форматы и сопровождает выбор. Фактическая студия, работодатель или платформа согласовывается отдельно на собеседовании.</p></details>
           <details class="faq-item"><summary>Кто будет моим работодателем?</summary><p>Это зависит от выбранного варианта. До передачи заявки мы сообщим название и роль организации, которая проводит собеседование, проверяет возраст, организует работу и осуществляет выплаты.</p></details>
@@ -2875,7 +2872,7 @@
             <form action="/api/lead" method="post" autocomplete="on" data-consultation-form>
               <div class="field-grid">
                 <div class="compact-field"><label for="final-name">Имя или удобное обращение</label><input id="final-name" name="name" type="text" maxlength="80" required></div>
-                <div class="compact-field"><label for="final-contact">Телефон или username Telegram</label><input id="final-contact" name="contact" type="text" maxlength="120" required></div>
+                <div class="compact-field"><label for="final-contact">Телефон или username в Telegram</label><input id="final-contact" name="contact" type="text" maxlength="120" required></div>
                 <div class="compact-field"><label for="final-city">Город / страна</label><input id="final-city" name="city" type="text" maxlength="100" required></div>
                 <div class="compact-field"><label for="final-format">Желаемый формат</label><select id="final-format" name="work_format"><option value="compare">Хочу сравнить</option><option value="studio">Студия</option><option value="remote">Удаленно</option><option value="phone">С телефона</option></select></div>
                 <div class="compact-field"><label for="final-equipment">Оборудование</label><select id="final-equipment" name="equipment"><option value="unknown">Пока не знаю</option><option value="computer">Компьютер и интернет</option><option value="phone">Только телефон</option><option value="none">Нет оборудования</option></select></div>
@@ -3028,7 +3025,7 @@
         <div class="form-honeypot" aria-hidden="true"><label for="consultation-website">Не заполняйте это поле</label><input id="consultation-website" name="website" type="text" tabindex="-1" autocomplete="off"></div>
 
         <div class="form-field">
-          <label for="consultation-contact">Телефон, Telegram или другой контакт</label>
+          <label for="consultation-contact">Телефон или username в Telegram</label>
           <input id="consultation-contact" name="contact" type="text" autocomplete="tel" maxlength="120" placeholder="Укажите удобный способ связи" required>
         </div>
 
