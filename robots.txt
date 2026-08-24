@@ -1,15 +1,12 @@
-# Основные правила для поисковых роботов
 User-agent: *
 Allow: /
 Disallow: /api/
 Disallow: /_vercel/
 
-# Дополнительные директивы для Яндекса
 User-agent: Yandex
 Allow: /
 Disallow: /api/
 Disallow: /_vercel/
 Clean-param: utm_source&utm_medium&utm_campaign&utm_content&utm_term&yclid&gclid /
-Host: studialuxe.vercel.app
 
 Sitemap: https://studialuxe.vercel.app/sitemap.xml
