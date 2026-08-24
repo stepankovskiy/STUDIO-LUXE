@@ -10,6 +10,6 @@ Allow: /
 Disallow: /api/
 Disallow: /_vercel/
 Clean-param: utm_source&utm_medium&utm_campaign&utm_content&utm_term&yclid&gclid /
-Host: studio-lux.vercel.app
+Host: studialuxe.vercel.app
 
-Sitemap: https://studio-lux.vercel.app/sitemap.xml
+Sitemap: https://studialuxe.vercel.app/sitemap.xml
