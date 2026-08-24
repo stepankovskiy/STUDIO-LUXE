@@ -853,11 +853,11 @@
     .agent-shell {
       position: relative;
       z-index: 1;
-      max-width: 1120px;
+      width: 100%;
       display: grid;
-      grid-template-columns: minmax(340px, 0.82fr) minmax(0, 1.18fr);
-      align-items: stretch;
-      gap: clamp(38px, 5vw, 76px);
+      grid-template-columns: minmax(260px, 300px) minmax(0, 1fr);
+      align-items: center;
+      gap: clamp(32px, 4vw, 60px);
       margin: 0 auto;
       padding: clamp(18px, 2.2vw, 28px);
       border: 1px solid rgba(136, 177, 173, 0.2);
@@ -869,7 +869,9 @@
     }
     .agent-portrait {
       position: relative;
-      min-height: 500px;
+      width: 100%;
+      height: 380px;
+      min-height: 0;
       overflow: hidden;
       margin: 0;
       border: 1px solid rgba(244, 207, 82, 0.19);
@@ -1914,8 +1916,8 @@
       .process-card { grid-column: span 2; }
       .process-card:nth-child(4) { grid-column: 2 / span 2; }
       .process-card:nth-child(5) { grid-column: 4 / span 2; }
-      .agent-shell { grid-template-columns: minmax(300px, 0.76fr) minmax(0, 1.24fr); gap: 38px; }
-      .agent-portrait { min-height: 480px; }
+      .agent-shell { grid-template-columns: 270px minmax(0, 1fr); gap: 32px; }
+      .agent-portrait { height: 350px; }
       .agent-points { grid-template-columns: 1fr; }
       .agent-points li { padding: 13px 15px; }
       .footer-main { grid-template-columns: 1.25fr repeat(3, minmax(130px, 0.75fr)); gap: 30px; }
@@ -1969,8 +1971,8 @@
       .process-card, .process-card:nth-child(4) { grid-column: auto; }
       .process-card:nth-child(5) { grid-column: 1 / -1; width: calc(50% - 7px); justify-self: center; }
       .agent-section { padding: 76px 0; }
-      .agent-shell { grid-template-columns: minmax(270px, 0.72fr) minmax(0, 1.28fr); gap: 28px; }
-      .agent-portrait { min-height: 470px; }
+      .agent-shell { grid-template-columns: 240px minmax(0, 1fr); gap: 24px; }
+      .agent-portrait { height: 330px; }
       .agent-content { padding-right: 8px; }
       .footer-contact-bar { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .footer-main { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -2016,7 +2018,7 @@
       .hero-agent-link { padding-left: 0; }
       .agent-section { padding: 62px 0; }
       .agent-shell { grid-template-columns: 1fr; gap: 0; padding: 10px; border-radius: 18px; }
-      .agent-portrait { min-height: 0; aspect-ratio: 4 / 3; border-radius: 13px; }
+      .agent-portrait { width: min(100%, 280px); height: auto; aspect-ratio: 1 / 1; justify-self: center; border-radius: 13px; }
       .agent-portrait img { object-position: 50% 35%; }
       .agent-content { padding: 30px 12px 20px; }
       .agent-content h2 { font-size: clamp(33px, 9.6vw, 43px); }
@@ -2239,12 +2241,13 @@
                 <path d="M5 12H19M14 7L19 12L14 17" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
             </button>
-            <button class="btn btn-secondary hero-agent-link" type="button" data-open-consultation aria-haspopup="dialog">
+            <!-- Замените your_agent_username на имя пользователя вашего Telegram-аккаунта -->
+            <a class="btn btn-secondary hero-agent-link" href="https://t.me/your_agent_username" target="_blank" rel="noopener noreferrer" aria-label="Задать вопрос агенту в Telegram">
               <span class="hero-agent-avatar" aria-hidden="true">
                 <img src="assets/agent-photo.webp" width="768" height="733" alt="" decoding="async" fetchpriority="high">
               </span>
               <strong>Задать вопрос агенту</strong>
-            </button>
+            </a>
           </div>
 
 
