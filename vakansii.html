@@ -937,6 +937,108 @@
       *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; }
     }
   </style>
+
+ .privacy-notice {
+    position: fixed;
+    z-index: 1000;
+    right: 18px;
+    bottom: 18px;
+    left: 18px;
+    display: flex;
+    width: min(1120px, calc(100% - 36px));
+    margin: 0 auto;
+    padding: 18px 20px;
+    align-items: center;
+    gap: 22px;
+    color: #d8d2c7;
+    border: 1px solid rgba(212, 175, 55, 0.28);
+    border-radius: 14px;
+    background: rgba(17, 19, 19, 0.97);
+    box-shadow: 0 18px 54px rgba(0, 0, 0, 0.56);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+  }
+  .privacy-notice[hidden] { display: none; }
+  .privacy-notice__content { min-width: 0; flex: 1; }
+  .privacy-notice__title {
+    margin: 0 0 6px;
+    color: #f5f0e6;
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: clamp(18px, 2vw, 22px);
+    line-height: 1.2;
+  }
+  .privacy-notice__text {
+    max-width: 780px;
+    margin: 0;
+    color: #aaa49a;
+    font-size: 11.5px;
+    line-height: 1.65;
+  }
+  .privacy-notice__text a {
+    color: var(--primary-light, #d4af37);
+    text-decoration: underline;
+    text-decoration-color: rgba(212, 175, 55, 0.42);
+    text-underline-offset: 3px;
+  }
+  .privacy-notice__actions {
+    display: flex;
+    flex: 0 0 auto;
+    gap: 10px;
+  }
+  .privacy-notice__button {
+    min-height: 44px;
+    padding: 10px 16px;
+    color: #e2ddd3;
+    border: 1px solid rgba(255, 255, 255, 0.13);
+    border-radius: 9px;
+    background: rgba(255, 255, 255, 0.035);
+    font: 700 10px/1.2 "Inter", Arial, sans-serif;
+    letter-spacing: 0.38px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+  }
+  .privacy-notice__button:hover {
+    transform: translateY(-1px);
+    border-color: rgba(212, 175, 55, 0.38);
+    background: rgba(212, 175, 55, 0.07);
+  }
+  .privacy-notice__button--accept {
+    color: #18150e;
+    border-color: var(--primary-light, #d4af37);
+    background: var(--primary-light, #d4af37);
+  }
+  .privacy-notice__button--accept:hover {
+    border-color: #ffdc60;
+    background: #ffdc60;
+  }
+  .privacy-notice__button:focus-visible,
+  .privacy-notice__text a:focus-visible {
+    outline: 2px solid var(--primary-light, #d4af37);
+    outline-offset: 3px;
+  }
+  @media (max-width: 760px) {
+    .privacy-notice {
+      right: 10px;
+      bottom: 82px;
+      left: 10px;
+      width: calc(100% - 20px);
+      padding: 17px;
+      align-items: stretch;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .privacy-notice__actions { width: 100%; }
+    .privacy-notice__button { flex: 1; padding-inline: 11px; }
+  }
+  @media (max-width: 430px) {
+    .privacy-notice__actions { flex-direction: column-reverse; }
+    .privacy-notice__button { width: 100%; }
+  }
+
+
+
+
 </head>
 <body>
   <!-- Yandex.Metrika counter -->
@@ -1607,5 +1709,63 @@
       });
     })();
   </script>
+<section class="privacy-notice" id="privacy-notice" aria-labelledby="privacy-notice-title" hidden>
+  <div class="privacy-notice__content">
+    <h2 class="privacy-notice__title" id="privacy-notice-title">Конфиденциальность и файлы cookie</h2>
+    <p class="privacy-notice__text">
+      На сайте используются файлы cookie для анализа посещаемости и улучшения работы сервиса. При этом могут обрабатываться IP-адрес, сведения об устройстве и действиях на сайте. Подробнее — в
+      <a href="/privacy-policy.html" target="_blank" rel="noopener">политике конфиденциальности</a>.
+    </p>
+  </div>
+  <div class="privacy-notice__actions" aria-label="Настройки конфиденциальности">
+    <button class="privacy-notice__button" type="button" data-privacy-reject>Отклонить</button>
+    <button class="privacy-notice__button privacy-notice__button--accept" type="button" data-privacy-accept>Принять</button>
+  </div>
+</section>
+
+<script>
+  (() => {
+    const STORAGE_KEY = "studioLuxePrivacyNoticeV2";
+    const notice = document.getElementById("privacy-notice");
+    const acceptButton = notice?.querySelector("[data-privacy-accept]");
+    const rejectButton = notice?.querySelector("[data-privacy-reject]");
+
+    const getChoice = () => {
+      try {
+        return window.localStorage.getItem(STORAGE_KEY);
+      } catch (error) {
+        return null;
+      }
+    };
+
+    const saveChoice = (choice) => {
+      try {
+        window.localStorage.setItem(STORAGE_KEY, choice);
+      } catch (error) {
+        /* Если хранилище недоступно, выбор действует до закрытия страницы. */
+      }
+    };
+
+    const closeNotice = () => {
+      if (notice) notice.hidden = true;
+    };
+
+    if (!getChoice() && notice) {
+      notice.hidden = false;
+    }
+
+    acceptButton?.addEventListener("click", () => {
+      saveChoice("accepted");
+      closeNotice();
+    });
+
+    rejectButton?.addEventListener("click", () => {
+      saveChoice("declined");
+      closeNotice();
+    });
+  })();
+</script>
+
+
 </body>
 </html>
