@@ -162,6 +162,16 @@
     @media(max-width:760px){.privacy-notice{right:10px;bottom:82px;left:10px;width:calc(100% - 20px);padding:17px;align-items:stretch;flex-direction:column;gap:14px}.privacy-notice__actions{width:100%}.privacy-notice__button{flex:1;padding-inline:11px}}
     @media(max-width:620px){body{padding-bottom:56px}.container{padding-inline:18px}.hero{padding-top:22px;background-image:linear-gradient(180deg,rgba(5,8,8,.68),rgba(5,8,8,.86) 32%,#0b0f0f 68%),url("/assets/hero-img.png");background-position:center,68% top;background-size:100% 100%,155% auto}.breadcrumbs{margin-bottom:22px}h1{font-size:39px}.micro-trust,.field-grid,.data-cards,.success-actions,.privacy-links,.privacy-details,.footer-main{grid-template-columns:1fr}.field-span-2{grid-column:auto}.form-success{min-height:390px;padding:28px 17px}.selection-form-card .form-success{min-height:320px}.steps{grid-template-columns:1fr}.manager-invite{grid-template-columns:66px minmax(0,1fr);gap:15px;padding:16px}.manager-invite-photo{width:62px;height:62px}.manager-invite h2{font-size:20px}.manager-invite p{font-size:13px}.footer-bottom{flex-direction:column}.mobile-contact-bar{position:fixed;right:0;bottom:0;left:0;z-index:90;display:grid;grid-template-columns:1fr 1fr;min-height:56px;padding:7px;background:rgba(9,11,11,.97);border-top:1px solid var(--border)}.mobile-contact-bar a{min-height:42px;display:flex;align-items:center;justify-content:center;color:var(--soft);border-right:1px solid var(--border-light);font-size:10px;font-weight:800}.mobile-contact-bar a:last-child{color:#17150d;background:var(--primary-light);border-radius:7px}}
     @media(max-width:430px){.privacy-notice__actions{flex-direction:column-reverse}.privacy-notice__button{width:100%}}
+
+    /* Точечные правки актуальной версии */
+    h1{max-width:900px;margin-bottom:18px;font-size:clamp(34px,5vw,62px);line-height:1.02;letter-spacing:-.025em}
+    #process{padding-top:clamp(44px,5vw,68px)}
+    .manager-invite-action .btn,
+    .selection-form-card .btn{font-size:12px;letter-spacing:.2px}
+    @media(max-width:620px){
+      h1{font-size:36px}
+      #process{padding-top:42px}
+    }
   </style>
 </head>
 <body>
