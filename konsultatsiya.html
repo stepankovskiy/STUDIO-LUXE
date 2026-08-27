@@ -230,6 +230,73 @@
 .privacy-notice__text a:focus-visible {
   outline-color: #8c6c0d;
 }
+
+/* Полноценное подтверждение успешной отправки формы */
+.form-fields {
+  display: grid;
+  gap: 12px;
+}
+.form-success {
+  min-height: 360px;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 15px;
+  padding: 34px 22px 26px;
+  text-align: center;
+  border: 1px solid rgba(212, 175, 55, 0.24);
+  border-radius: 14px;
+  background:
+    radial-gradient(circle at 50% 18%, rgba(212, 175, 55, 0.15), transparent 38%),
+    linear-gradient(180deg, rgba(32, 48, 49, 0.72), rgba(20, 33, 35, 0.86));
+}
+.form-success--compact {
+  min-height: 330px;
+  padding-inline: 17px;
+}
+.form-success__icon {
+  width: 70px;
+  height: 70px;
+  display: grid;
+  place-items: center;
+  color: #13201d;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #e5c85c, var(--gold));
+  box-shadow: 0 18px 40px rgba(212, 175, 55, 0.22);
+}
+.form-success__icon svg { width: 34px; height: 34px; }
+.form-success__title {
+  margin: 3px 0 0;
+  color: #fff7e6;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 29px;
+  line-height: 1.15;
+}
+.form-success .form-success__text {
+  max-width: 500px;
+  margin: 0;
+  color: #d5cec1;
+  font-size: 13px;
+  line-height: 1.65;
+}
+.form-success .form-success__note {
+  max-width: 500px;
+  margin: 0;
+  color: #aaa397;
+  font-size: 10.5px;
+  line-height: 1.55;
+}
+.form-success__actions {
+  width: min(100%, 420px);
+  display: grid;
+  gap: 10px;
+  margin-top: 5px;
+}
+.form-success__actions .btn { width: 100%; min-height: 49px; }
+@media (max-width: 760px) {
+  .form-success,
+  .form-success--compact { min-height: 320px; padding: 28px 17px 22px; }
+}
   
   
   </style>
@@ -264,14 +331,23 @@
           <aside class="lead-card" id="request" aria-label="Форма заявки">
             <h2>Обсудить свой запрос</h2><p>Оставьте только данные для связи. Паспорт, фото и банковские реквизиты не нужны.</p>
             <form class="mini-form" action="/api/lead" method="post" autocomplete="on" data-consultation-form>
-              <div class="field-row"><div class="field"><label for="hero-name">Как к вам обращаться</label><input id="hero-name" name="name" type="text" maxlength="80" autocomplete="name" required></div><div class="field"><label for="hero-city">Город</label><input id="hero-city" name="city" type="text" maxlength="100" autocomplete="address-level2" required></div></div>
-              <div class="field"><label for="hero-contact">Телефон или username в Telegram</label><input id="hero-contact" name="contact" type="text" maxlength="120" placeholder="@username" autocomplete="tel" required></div>
-              <div class="field"><label for="hero-format">Желаемый формат</label><select id="hero-format" name="work_format"><option value="compare">Хочу сравнить</option><option value="studio">В студии</option><option value="remote">Удалённо</option><option value="phone">С телефона</option></select></div>
-              <div class="field"><label for="hero-comment">Что хотите уточнить? <span>(необязательно)</span></label><textarea id="hero-comment" name="comment" maxlength="1000" placeholder="Например: удалённый формат, график, порядок собеседования"></textarea></div>
-              <input type="hidden" name="source" value="consultation_page_hero"><div hidden aria-hidden="true"><label for="hero-website">Не заполняйте</label><input id="hero-website" name="website" type="text" tabindex="-1" autocomplete="off"></div>
-              <label class="check"><input type="checkbox" name="age_confirmed" value="yes" required><span><strong>Мне исполнилось 18 лет.</strong> Подтверждаю совершеннолетие.</span></label>
-              <label class="check"><input type="checkbox" name="privacy_consent" value="yes" required><span>Даю <a href="/personal-data-consent.html" target="_blank" rel="noopener">согласие на обработку персональных данных</a> для ответа на обращение.</span></label>
-              <button class="btn btn-primary" type="submit">Получить консультацию</button><p class="form-feedback" aria-live="polite" hidden></p><p class="privacy">Подробнее — в <a href="/privacy-policy.html" target="_blank" rel="noopener">политике конфиденциальности</a>. Контакт партнёру передаётся только после отдельного согласия.</p>
+              <div class="form-fields" data-form-fields>
+                <div class="field-row"><div class="field"><label for="hero-name">Как к вам обращаться</label><input id="hero-name" name="name" type="text" maxlength="80" autocomplete="name" required></div><div class="field"><label for="hero-city">Город</label><input id="hero-city" name="city" type="text" maxlength="100" autocomplete="address-level2" required></div></div>
+                <div class="field"><label for="hero-contact">Телефон или username в Telegram</label><input id="hero-contact" name="contact" type="text" maxlength="120" placeholder="@username" autocomplete="tel" required></div>
+                <div class="field"><label for="hero-format">Желаемый формат</label><select id="hero-format" name="work_format"><option value="compare">Хочу сравнить</option><option value="studio">В студии</option><option value="remote">Удалённо</option><option value="phone">С телефона</option></select></div>
+                <div class="field"><label for="hero-comment">Что хотите уточнить? <span>(необязательно)</span></label><textarea id="hero-comment" name="comment" maxlength="1000" placeholder="Например: удалённый формат, график, порядок собеседования"></textarea></div>
+                <input type="hidden" name="source" value="consultation_page_hero"><div hidden aria-hidden="true"><label for="hero-website">Не заполняйте</label><input id="hero-website" name="website" type="text" tabindex="-1" autocomplete="off"></div>
+                <label class="check"><input type="checkbox" name="age_confirmed" value="yes" required><span><strong>Мне исполнилось 18 лет.</strong> Подтверждаю совершеннолетие.</span></label>
+                <label class="check"><input type="checkbox" name="privacy_consent" value="yes" required><span>Даю <a href="/personal-data-consent.html" target="_blank" rel="noopener">согласие на обработку персональных данных</a> для ответа на обращение.</span></label>
+                <button class="btn btn-primary" type="submit">Получить консультацию</button><p class="form-feedback" role="alert" aria-live="assertive" hidden></p><p class="privacy">Подробнее — в <a href="/privacy-policy.html" target="_blank" rel="noopener">политике конфиденциальности</a>. Контакт партнёру передаётся только после отдельного согласия.</p>
+              </div>
+              <div class="form-success form-success--compact" data-form-success role="status" aria-live="polite" tabindex="-1" hidden>
+                <span class="form-success__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M5 12.5L9.4 17L19 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                <h3 class="form-success__title">Заявка принята</h3>
+                <p class="form-success__text">Спасибо! Агент получил ваши данные и свяжется с вами указанным способом в ближайшее рабочее время.</p>
+                <p class="form-success__note">Если вы указали Telegram, проверьте правильность username и возможность получать сообщения от новых контактов.</p>
+                <div class="form-success__actions"><a class="btn btn-primary" href="https://t.me/NatashaRomanova_studio_luxe" target="_blank" rel="noopener" data-telegram-click data-placement="hero_success">Написать агенту сейчас</a><button class="btn btn-secondary" type="button" data-reset-success>Отправить ещё одну заявку</button></div>
+              </div>
             </form>
           </aside>
         </div>
@@ -318,13 +394,48 @@
       <details><summary>Передадут ли мой контакт студии без согласия?</summary><p>Нет. Контакт выбранному партнёру передаётся только после отдельного согласия. До этого заявку использует Studio Luxe, чтобы ответить на обращение и провести консультацию.</p></details>
     </div></div></section>
 
-    <section class="section" aria-labelledby="final-title"><div class="container"><div class="final-cta"><div><p class="eyebrow">Без давления и обязательств</p><h2 id="final-title">Обсудите подходящий формат</h2><p>Оставьте короткую заявку — сначала ответим на вопросы, а решение о собеседовании вы примете после консультации. Документы на этом этапе не нужны.</p><div class="hero-actions"><a class="btn btn-secondary" href="https://t.me/NatashaRomanova_studio_luxe" target="_blank" rel="noopener" data-telegram-click data-placement="final">Написать в Telegram</a></div></div><form class="final-form" action="/api/lead" method="post" autocomplete="on" data-consultation-form><div class="field"><label for="final-name">Как к вам обращаться</label><input id="final-name" name="name" type="text" maxlength="80" autocomplete="name" required></div><div class="field"><label for="final-city">Город / страна</label><input id="final-city" name="city" type="text" maxlength="100" autocomplete="address-level2" required></div><div class="field"><label for="final-contact">Телефон или username в Telegram</label><input id="final-contact" name="contact" type="text" maxlength="120" placeholder="@username" autocomplete="tel" required></div><div class="field"><label for="final-format">Желаемый формат</label><select id="final-format" name="work_format"><option value="compare">Хочу сравнить</option><option value="studio">В студии</option><option value="remote">Удалённо</option><option value="phone">С телефона</option></select></div><div class="field"><label for="final-comment">Комментарий или вопрос <span>(необязательно)</span></label><textarea id="final-comment" name="comment" maxlength="1000" placeholder="Не указывайте паспортные данные или банковские реквизиты"></textarea></div><input type="hidden" name="source" value="consultation_page_final"><div class="form-honeypot" aria-hidden="true"><label for="final-website">Не заполняйте это поле</label><input id="final-website" name="website" type="text" tabindex="-1" autocomplete="off"></div><label class="check"><input type="checkbox" name="age_confirmed" value="yes" required><span>Мне исполнилось 18 лет.</span></label><label class="check"><input type="checkbox" name="privacy_consent" value="yes" required><span>Принимаю <a href="/personal-data-consent.html" target="_blank" rel="noopener">условия обработки данных</a>.</span></label><button class="btn btn-primary" type="submit"><strong>Получить консультацию</strong></button><p class="form-feedback" aria-live="polite" hidden></p></form></div></div></section>
+    <section class="section" aria-labelledby="final-title">
+      <div class="container">
+        <div class="final-cta">
+          <div>
+            <p class="eyebrow">Без давления и обязательств</p>
+            <h2 id="final-title">Обсудите подходящий формат</h2>
+            <p>Оставьте короткую заявку — сначала ответим на вопросы, а решение о собеседовании вы примете после консультации. Документы на этом этапе не нужны.</p>
+            <div class="hero-actions"><a class="btn btn-secondary" href="https://t.me/NatashaRomanova_studio_luxe" target="_blank" rel="noopener" data-telegram-click data-placement="final">Написать в Telegram</a></div>
+          </div>
+          <form class="final-form" action="/api/lead" method="post" autocomplete="on" data-consultation-form>
+            <div class="form-fields" data-form-fields>
+              <div class="field"><label for="final-name">Как к вам обращаться</label><input id="final-name" name="name" type="text" maxlength="80" autocomplete="name" required></div>
+              <div class="field"><label for="final-city">Город / страна</label><input id="final-city" name="city" type="text" maxlength="100" autocomplete="address-level2" required></div>
+              <div class="field"><label for="final-contact">Телефон или username в Telegram</label><input id="final-contact" name="contact" type="text" maxlength="120" placeholder="@username" autocomplete="tel" required></div>
+              <div class="field"><label for="final-format">Желаемый формат</label><select id="final-format" name="work_format"><option value="compare">Хочу сравнить</option><option value="studio">В студии</option><option value="remote">Удалённо</option><option value="phone">С телефона</option></select></div>
+              <div class="field"><label for="final-comment">Комментарий или вопрос <span>(необязательно)</span></label><textarea id="final-comment" name="comment" maxlength="1000" placeholder="Не указывайте паспортные данные или банковские реквизиты"></textarea></div>
+              <input type="hidden" name="source" value="consultation_page_final">
+              <div class="form-honeypot" aria-hidden="true"><label for="final-website">Не заполняйте это поле</label><input id="final-website" name="website" type="text" tabindex="-1" autocomplete="off"></div>
+              <label class="check"><input type="checkbox" name="age_confirmed" value="yes" required><span>Мне исполнилось 18 лет.</span></label>
+              <label class="check"><input type="checkbox" name="privacy_consent" value="yes" required><span>Принимаю <a href="/personal-data-consent.html" target="_blank" rel="noopener">условия обработки данных</a>.</span></label>
+              <button class="btn btn-primary" type="submit"><strong>Получить консультацию</strong></button>
+              <p class="form-feedback" role="alert" aria-live="assertive" hidden></p>
+            </div>
+            <div class="form-success" data-form-success role="status" aria-live="polite" tabindex="-1" hidden>
+              <span class="form-success__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M5 12.5L9.4 17L19 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              <h3 class="form-success__title">Заявка принята</h3>
+              <p class="form-success__text">Спасибо! Агент получил ваши контактные данные и вопрос. С вами свяжутся указанным способом в ближайшее рабочее время.</p>
+              <p class="form-success__note">Если вы указали Telegram, проверьте правильность username и возможность получать сообщения от новых контактов.</p>
+              <div class="form-success__actions"><a class="btn btn-primary" href="https://t.me/NatashaRomanova_studio_luxe" target="_blank" rel="noopener" data-telegram-click data-placement="final_success">Написать агенту сейчас</a><button class="btn btn-secondary" type="button" data-reset-success>Отправить ещё одну заявку</button></div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
   </main>
   <footer class="site-footer"><div class="container"><div class="footer-main"><section class="footer-brand" aria-label="О Studio Luxe"><a class="brand" href="/"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3L14.6 8.4L20.5 9.3L16.25 13.45L17.25 19.3L12 16.55L6.75 19.3L7.75 13.45L3.5 9.3L9.4 8.4L12 3Z" stroke="currentColor" stroke-width="1.7"/></svg></span><span class="brand-name">STUDIO LUXE</span></a><p>Сервис консультации и подбора вариантов для совершеннолетних девушек 18+. Не является работодателем и не гарантирует трудоустройство или доход.</p></section><section class="footer-column"><p class="footer-title">Навигация</p><nav><a href="/vakansii.html">Вакансии</a><a href="/studii.html">Каталог студий</a><a href="/blog">Блог</a><a href="/about-service.html">О сервисе</a></nav></section><section class="footer-column"><p class="footer-title">Документы</p><nav><a href="/privacy-policy.html">Политика конфиденциальности</a><a href="/personal-data-consent.html">Согласие на обработку данных</a></nav></section><section class="footer-column"><p class="footer-title">Контакты</p><address><span>БЦ «Красная Роза»</span><span>119021, Москва, ул. Тимура Фрунзе, д. 11</span><span>Telegram: <a href="https://t.me/NatashaRomanova_studio_luxe" target="_blank" rel="noopener">@NatashaRomanova_studio_luxe</a></span><span>Ежедневно с 8:00 до 22:00</span></address></section></div><div class="footer-bottom"><span>© 2026 Studio Luxe. Все права защищены.</span><span>Условия и доход зависят от выбранного партнёра, договора и результатов.</span></div></div></footer>
   <div class="mobile-bar" aria-label="Быстрые действия"><a href="https://t.me/NatashaRomanova_studio_luxe" target="_blank" rel="noopener" data-telegram-click data-placement="mobile">Написать в Telegram</a><a href="#request">Получить консультацию</a></div>
   <script>
     window.trackStudioGoal=(eventName,parameters={})=>{window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:eventName,...parameters});if(typeof window.ym==='function')window.ym(111894633,'reachGoal',eventName,parameters)};
-    document.querySelectorAll('form[data-consultation-form]').forEach(form=>{form.addEventListener('submit',async event=>{event.preventDefault();const button=form.querySelector('button[type="submit"]');const feedback=form.querySelector('.form-feedback');const initialButtonContent=button?.innerHTML;const source=form.elements.namedItem('source')?.value||'consultation';if(feedback){feedback.hidden=true;feedback.className='form-feedback'}if(button){button.disabled=true;button.innerHTML='<strong>Отправляем…</strong>'}try{const response=await fetch(form.action,{method:'POST',body:new FormData(form),headers:{Accept:'application/json'}});const result=await response.json().catch(()=>({}));if(!response.ok||!result.ok)throw new Error(result.message||'Не удалось отправить заявку.');form.reset();if(feedback){feedback.textContent=result.message||'Заявка отправлена. Специалист свяжется с вами указанным способом.';feedback.classList.add('form-feedback--success');feedback.hidden=false}window.trackStudioGoal('consultation_form_submit',{placement:source})}catch(error){if(feedback){feedback.textContent=error.message||'Произошла ошибка. Попробуйте ещё раз немного позже.';feedback.classList.add('form-feedback--error');feedback.hidden=false}}finally{if(button){button.disabled=false;button.innerHTML=initialButtonContent}}})});
+    const restoreConsultationForm=(form,moveFocus=false)=>{const fields=form?.querySelector('[data-form-fields]');const success=form?.querySelector('[data-form-success]');if(fields)fields.hidden=false;if(success)success.hidden=true;if(moveFocus)form?.querySelector('input:not([type="hidden"]),select,textarea')?.focus()};
+    document.querySelectorAll('form[data-consultation-form]').forEach(form=>{form.addEventListener('submit',async event=>{event.preventDefault();const button=form.querySelector('button[type="submit"]');const feedback=form.querySelector('.form-feedback');const fields=form.querySelector('[data-form-fields]');const success=form.querySelector('[data-form-success]');const initialButtonContent=button?.innerHTML;const source=form.elements.namedItem('source')?.value||'consultation';if(feedback){feedback.hidden=true;feedback.className='form-feedback';feedback.textContent=''}if(button){button.disabled=true;button.innerHTML='<strong>Отправляем…</strong>'}try{const response=await fetch(form.action,{method:'POST',body:new FormData(form),headers:{Accept:'application/json'}});const result=await response.json().catch(()=>({}));if(!response.ok||!result.ok)throw new Error(result.message||'Не удалось отправить заявку.');form.reset();if(fields)fields.hidden=true;if(success){success.hidden=false;success.focus()}window.trackStudioGoal('consultation_form_submit',{placement:source})}catch(error){if(feedback){feedback.textContent=error.message||'Произошла ошибка. Попробуйте ещё раз немного позже.';feedback.classList.add('form-feedback--error');feedback.hidden=false}}finally{if(button){button.disabled=false;button.innerHTML=initialButtonContent}}})});
+    document.querySelectorAll('[data-reset-success]').forEach(button=>button.addEventListener('click',()=>restoreConsultationForm(button.closest('form'),true)));
     document.querySelectorAll('[data-telegram-click]').forEach(link=>link.addEventListener('click',()=>window.trackStudioGoal('manager_telegram_click',{placement:link.dataset.placement||'unspecified'})));
     document.querySelector('.mobile-nav')?.querySelectorAll('a').forEach(link=>link.addEventListener('click',()=>document.querySelector('.mobile-nav')?.removeAttribute('open')));
   </script>
