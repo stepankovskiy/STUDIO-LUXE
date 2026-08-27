@@ -1267,16 +1267,16 @@
       gap: 34px;
       align-items: center;
     }
-    .inline-form-head h3 {
+    .inline-form-head > div > h3 {
       margin: 0;
       font-family: "Playfair Display", Georgia, serif;
       font-size: 28px;
       line-height: 1.15;
     }
-    .inline-form-head p { margin: 10px 0 0; color: #a29b90; font-size: 10.5px; line-height: 1.65; }
-    .inline-form,
+    .inline-form-head > div > p { margin: 10px 0 0; color: #a29b90; font-size: 10.5px; line-height: 1.65; }
+    .inline-form-fields,
     .field-grid { display: grid; gap: 12px; }
-    .inline-form { grid-template-columns: repeat(4, minmax(0, 1fr)) auto; align-items: end; }
+    .inline-form-fields { grid-template-columns: repeat(4, minmax(0, 1fr)) auto; align-items: end; }
     .compact-field { display: grid; gap: 6px; }
     .compact-field label { color: #cfc7b9; font-size: 9px; font-weight: 700; }
     .compact-field input,
@@ -1563,6 +1563,10 @@
     .dialog-title { max-width: 420px; margin: 0; font-family: "Playfair Display", Georgia, serif; font-size: clamp(28px, 5vw, 38px); line-height: 1.08; }
     .dialog-text { max-width: 455px; margin: 13px 0 25px; color: #aca69b; font-size: 12px; line-height: 1.65; }
     .short-form { display: grid; gap: 16px; }
+    .form-fields { display: grid; gap: 16px; }
+    .form-fields[hidden],
+    .inline-form-fields[hidden],
+    .field-grid[hidden] { display: none; }
     .form-field { display: grid; gap: 7px; }
     .form-field label { color: #e7e1d5; font-size: 11px; font-weight: 700; }
     .form-field input, .form-field select {
@@ -1598,8 +1602,40 @@
     .form-honeypot { position: absolute !important; left: -10000px !important; width: 1px !important; height: 1px !important; overflow: hidden !important; }
     .form-feedback { grid-column: 1 / -1; margin: 3px 0 0; padding: 12px 14px; border-radius: 9px; font-size: 11px; line-height: 1.55; }
     .form-feedback[hidden] { display: none; }
-    .form-feedback--success { color: #d7f0df; border: 1px solid rgba(104, 190, 132, 0.28); background: rgba(69, 139, 91, 0.13); }
     .form-feedback--error { color: #f2d2cf; border: 1px solid rgba(207, 105, 97, 0.28); background: rgba(151, 65, 59, 0.13); }
+    .form-success {
+      min-height: 360px;
+      display: grid;
+      place-items: center;
+      align-content: center;
+      gap: 15px;
+      padding: 34px 22px 26px;
+      text-align: center;
+      border: 1px solid rgba(212, 175, 55, 0.24);
+      border-radius: 14px;
+      background:
+        radial-gradient(circle at 50% 18%, rgba(212, 175, 55, 0.15), transparent 38%),
+        linear-gradient(180deg, rgba(32, 48, 49, 0.72), rgba(20, 33, 35, 0.86));
+    }
+    .form-success[hidden] { display: none; }
+    .form-success--compact { min-height: 250px; padding-block: 28px; }
+    .form-success__icon {
+      width: 72px;
+      height: 72px;
+      display: grid;
+      place-items: center;
+      color: #13201d;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #e5c85c, var(--primary));
+      box-shadow: 0 18px 40px rgba(212, 175, 55, 0.22);
+    }
+    .form-success--compact .form-success__icon { width: 62px; height: 62px; }
+    .form-success__icon svg { width: 34px; height: 34px; }
+    .form-success__title { margin: 3px 0 0; color: #fff7e6; font-family: "Playfair Display", Georgia, serif; font-size: 29px; line-height: 1.15; }
+    .form-success__text { max-width: 500px; margin: 0; color: #d5cec1; font-size: 13px; line-height: 1.65; }
+    .form-success__note { max-width: 500px; margin: 0; color: #aaa397; font-size: 10.5px; line-height: 1.55; }
+    .form-success__actions { width: min(100%, 420px); display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin-top: 5px; }
+    .form-success__actions .btn { width: 100%; min-height: 49px; }
     form[data-consultation-form] button[type="submit"]:disabled { cursor: wait; opacity: 0.72; transform: none; }
 
     /* v5: clearer hierarchy, alternating screens and readable card typography */
@@ -2032,7 +2068,7 @@
       .workplace-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .workplace-card:last-child { grid-column: 1 / -1; width: calc(50% - 8px); justify-self: center; }
       .inline-form-head { grid-template-columns: 1fr; }
-      .inline-form { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .inline-form-fields { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .inline-form .btn { width: 100%; }
       .calculator-shell, .final-contact-grid { grid-template-columns: 1fr; }
       .contact-aside { position: static; }
@@ -2159,9 +2195,12 @@
       .workplace-photo { aspect-ratio: 4 / 5; }
       .fact-list li { grid-template-columns: minmax(105px, 0.72fr) minmax(0, 1.28fr); font-size: 11.5px; }
       .inline-form-section { padding: 22px 18px; }
-      .inline-form { grid-template-columns: 1fr; }
+      .inline-form-fields { grid-template-columns: 1fr; }
       .calculator-fields, .field-grid { grid-template-columns: 1fr; }
       .field-span-2 { grid-column: auto; }
+      .form-success { min-height: 320px; padding: 28px 17px 22px; }
+      .form-success--compact { min-height: 280px; }
+      .form-success__actions { grid-template-columns: 1fr; }
       .calculator-panel, .calculator-result, .contact-aside, .final-form-card { padding: 23px 18px; }
       .journey-step { grid-template-columns: 42px minmax(0, 1fr); gap: 13px; align-items: start; }
       .journey-cell, .journey-cell:last-child { grid-column: 2; }
@@ -2842,19 +2881,31 @@
               <p>Оставьте минимальные данные. Документы и чувствительные материалы на этом этапе не нужны.</p>
             </div>
             <form class="inline-form" action="/api/lead" method="post" data-consultation-form>
-              <div class="compact-field"><label for="quick-name">Имя</label><input id="quick-name" name="name" type="text" maxlength="80" required></div>
-              <div class="compact-field"><label for="quick-city">Город / страна</label><input id="quick-city" name="city" type="text" maxlength="100" required></div>
-              <div class="compact-field"><label for="quick-format">Формат</label><select id="quick-format" name="work_format"><option value="compare">Хочу сравнить</option><option value="studio">Студия</option><option value="remote">Удаленно</option></select></div>
-              <div class="compact-field"><label for="quick-contact">Телефон или username в Telegram</label><input id="quick-contact" name="contact" type="text" maxlength="120" required></div>
-              <input type="hidden" name="source" value="homepage_quick_form">
-              <div class="form-honeypot" aria-hidden="true"><label for="quick-website">Не заполняйте это поле</label><input id="quick-website" name="website" type="text" tabindex="-1" autocomplete="off"></div>
-              <button class="btn btn-primary" type="submit"><strong>Получить варианты</strong></button>
-              <div class="inline-consents">
-                <label class="check-row"><input type="checkbox" name="age_confirmed" value="yes" required><span><strong>Мне исполнилось 18 лет</strong>.</span></label>
-                <label class="check-row"><input type="checkbox" name="privacy_consent" value="yes" required><span>Я даю <a href="personal-data-consent.html" target="_blank" rel="noopener">согласие на обработку персональных данных</a> для ответа на обращение. Контакт не передается партнеру автоматически.</span></label>
-                <p class="form-privacy-note">Порядок обработки и защиты данных описан в <a href="privacy-policy.html" target="_blank" rel="noopener">политике конфиденциальности</a>.</p>
+              <div class="inline-form-fields" data-form-fields>
+                <div class="compact-field"><label for="quick-name">Имя</label><input id="quick-name" name="name" type="text" maxlength="80" required></div>
+                <div class="compact-field"><label for="quick-city">Город / страна</label><input id="quick-city" name="city" type="text" maxlength="100" required></div>
+                <div class="compact-field"><label for="quick-format">Формат</label><select id="quick-format" name="work_format"><option value="compare">Хочу сравнить</option><option value="studio">Студия</option><option value="remote">Удаленно</option></select></div>
+                <div class="compact-field"><label for="quick-contact">Телефон или username в Telegram</label><input id="quick-contact" name="contact" type="text" maxlength="120" required></div>
+                <input type="hidden" name="source" value="homepage_quick_form">
+                <div class="form-honeypot" aria-hidden="true"><label for="quick-website">Не заполняйте это поле</label><input id="quick-website" name="website" type="text" tabindex="-1" autocomplete="off"></div>
+                <button class="btn btn-primary" type="submit"><strong>Получить варианты</strong></button>
+                <div class="inline-consents">
+                  <label class="check-row"><input type="checkbox" name="age_confirmed" value="yes" required><span><strong>Мне исполнилось 18 лет</strong>.</span></label>
+                  <label class="check-row"><input type="checkbox" name="privacy_consent" value="yes" required><span>Я даю <a href="personal-data-consent.html" target="_blank" rel="noopener">согласие на обработку персональных данных</a> для ответа на обращение. Контакт не передается партнеру автоматически.</span></label>
+                  <p class="form-privacy-note">Порядок обработки и защиты данных описан в <a href="privacy-policy.html" target="_blank" rel="noopener">политике конфиденциальности</a>.</p>
+                </div>
+                <p class="form-feedback" role="alert" aria-live="assertive" hidden></p>
               </div>
-              <p class="form-feedback" aria-live="polite" hidden></p>
+              <div class="form-success form-success--compact" data-form-success role="status" aria-live="polite" tabindex="-1" hidden>
+                <span class="form-success__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M5 12.5L9.4 17L19 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                <h3 class="form-success__title">Заявка принята</h3>
+                <p class="form-success__text">Спасибо! Агент получил ваши данные и свяжется с вами указанным способом в ближайшее рабочее время.</p>
+                <p class="form-success__note">Если вы указали Telegram, проверьте правильность username и возможность получать сообщения от новых контактов.</p>
+                <div class="form-success__actions">
+                  <a class="btn btn-primary" href="https://t.me/NatashaRomanova_studio_luxe" target="_blank" rel="noopener noreferrer"><strong>Написать агенту сейчас</strong></a>
+                  <button class="btn btn-secondary" type="button" data-reset-success><strong>Отправить ещё одну заявку</strong></button>
+                </div>
+              </div>
             </form>
           </div>
         </section>
@@ -3047,7 +3098,7 @@
         <div class="final-contact-grid">
           <div class="final-form-card">
             <form action="/api/lead" method="post" autocomplete="on" data-consultation-form>
-              <div class="field-grid">
+              <div class="field-grid" data-form-fields>
                 <div class="compact-field"><label for="final-name">Имя или удобное обращение</label><input id="final-name" name="name" type="text" maxlength="80" required></div>
                 <div class="compact-field"><label for="final-contact">Телефон или username в Telegram</label><input id="final-contact" name="contact" type="text" maxlength="120" required></div>
                 <div class="compact-field"><label for="final-city">Город / страна</label><input id="final-city" name="city" type="text" maxlength="100" required></div>
@@ -3061,7 +3112,17 @@
                 <label class="check-row field-span-2"><input type="checkbox" name="privacy_consent" value="yes" required><span>Я даю <a href="personal-data-consent.html" target="_blank" rel="noopener">согласие на обработку персональных данных</a> для ответа на обращение.</span></label>
                 <p class="form-privacy-note field-span-2">Порядок обработки и защиты данных описан в <a href="privacy-policy.html" target="_blank" rel="noopener">политике конфиденциальности</a>.</p>
                 <button class="btn btn-primary field-span-2" type="submit"><strong>Получить консультацию агента</strong></button>
-                <p class="form-feedback" aria-live="polite" hidden></p>
+                <p class="form-feedback" role="alert" aria-live="assertive" hidden></p>
+              </div>
+              <div class="form-success" data-form-success role="status" aria-live="polite" tabindex="-1" hidden>
+                <span class="form-success__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M5 12.5L9.4 17L19 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                <h3 class="form-success__title">Заявка принята</h3>
+                <p class="form-success__text">Спасибо! Агент получил ваши контактные данные и информацию для первичного подбора. С вами свяжутся указанным способом в ближайшее рабочее время.</p>
+                <p class="form-success__note">Если вы указали Telegram, проверьте правильность username и возможность получать сообщения от новых контактов.</p>
+                <div class="form-success__actions">
+                  <a class="btn btn-primary" href="https://t.me/NatashaRomanova_studio_luxe" target="_blank" rel="noopener noreferrer"><strong>Написать агенту сейчас</strong></a>
+                  <button class="btn btn-secondary" type="button" data-reset-success><strong>Отправить ещё одну заявку</strong></button>
+                </div>
               </div>
             </form>
             <div class="form-operator">
@@ -3172,56 +3233,70 @@
         </svg>
       </button>
 
-      <p class="dialog-kicker">Короткая форма</p>
-      <h2 class="dialog-title" id="consultation-title"><strong>Получить консультацию агента</strong></h2>
-      <p class="dialog-text">Оставьте только данные, необходимые для связи. На первом этапе не отправляйте паспорт, банковские реквизиты или чувствительные материалы.</p>
+      <div data-form-intro>
+        <p class="dialog-kicker">Короткая форма</p>
+        <h2 class="dialog-title" id="consultation-title"><strong>Получить консультацию агента</strong></h2>
+        <p class="dialog-text">Оставьте только данные, необходимые для связи. На первом этапе не отправляйте паспорт, банковские реквизиты или чувствительные материалы.</p>
+      </div>
 
       <form class="short-form" action="/api/lead" method="post" autocomplete="on" data-consultation-form>
-        <div class="form-field">
-          <label for="consultation-name">Как к вам обращаться</label>
-          <input id="consultation-name" name="name" type="text" autocomplete="name" maxlength="80" placeholder="Имя или удобное обращение" required>
+        <div class="form-fields" data-form-fields>
+          <div class="form-field">
+            <label for="consultation-name">Как к вам обращаться</label>
+            <input id="consultation-name" name="name" type="text" autocomplete="name" maxlength="80" placeholder="Имя или удобное обращение" required>
+          </div>
+
+          <input type="hidden" name="source" value="consultation_popup">
+          <div class="form-honeypot" aria-hidden="true"><label for="consultation-website">Не заполняйте это поле</label><input id="consultation-website" name="website" type="text" tabindex="-1" autocomplete="off"></div>
+
+          <div class="form-field">
+            <label for="consultation-contact">Телефон или username в Telegram</label>
+            <input id="consultation-contact" name="contact" type="text" autocomplete="tel" maxlength="120" placeholder="Укажите удобный способ связи" required>
+          </div>
+
+          <div class="form-field">
+            <label for="consultation-format">Какой формат вас интересует</label>
+            <select id="consultation-format" name="work_format">
+              <option value="">Пока не знаю — хочу консультацию</option>
+              <option value="studio">Работа в студии</option>
+              <option value="remote">Удаленный формат</option>
+              <option value="compare">Хочу сравнить варианты</option>
+            </select>
+          </div>
+
+          <label class="check-row">
+            <input type="checkbox" name="age_confirmed" value="yes" required>
+            <span><strong>Мне исполнилось 18 лет</strong>. Я подтверждаю свое совершеннолетие.</span>
+          </label>
+
+          <label class="check-row">
+            <input type="checkbox" name="privacy_consent" value="yes" required>
+            <span>Я даю <a href="personal-data-consent.html" target="_blank" rel="noopener">согласие на обработку персональных данных</a> для ответа на обращение.</span>
+          </label>
+
+          <p class="form-privacy-note">Порядок обработки и защиты данных описан в <a href="privacy-policy.html" target="_blank" rel="noopener">политике конфиденциальности</a>.</p>
+
+          <button class="btn btn-primary form-submit" type="submit">
+            <strong>Получить консультацию агента</strong>
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M5 12H19M14 7L19 12L14 17" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+
+          <p class="form-feedback" role="alert" aria-live="assertive" hidden></p>
+
+          <p class="form-warning">Контакт не передается партнеру автоматически. Отдельное информированное согласие на передачу данных конкретной организации должно запрашиваться после выбора варианта.</p>
         </div>
-
-        <input type="hidden" name="source" value="consultation_popup">
-        <div class="form-honeypot" aria-hidden="true"><label for="consultation-website">Не заполняйте это поле</label><input id="consultation-website" name="website" type="text" tabindex="-1" autocomplete="off"></div>
-
-        <div class="form-field">
-          <label for="consultation-contact">Телефон или username в Telegram</label>
-          <input id="consultation-contact" name="contact" type="text" autocomplete="tel" maxlength="120" placeholder="Укажите удобный способ связи" required>
+        <div class="form-success" data-form-success role="status" aria-live="polite" tabindex="-1" hidden>
+          <span class="form-success__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M5 12.5L9.4 17L19 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <h2 class="form-success__title">Заявка принята</h2>
+          <p class="form-success__text">Спасибо! Агент получил ваши контактные данные и свяжется с вами указанным способом в ближайшее рабочее время.</p>
+          <p class="form-success__note">Если вы указали Telegram, проверьте правильность username и возможность получать сообщения от новых контактов.</p>
+          <div class="form-success__actions">
+            <button class="btn btn-primary" type="button" data-close-success><strong>Понятно, спасибо</strong></button>
+            <a class="btn btn-secondary" href="https://t.me/NatashaRomanova_studio_luxe" target="_blank" rel="noopener noreferrer"><strong>Написать агенту сейчас</strong></a>
+          </div>
         </div>
-
-        <div class="form-field">
-          <label for="consultation-format">Какой формат вас интересует</label>
-          <select id="consultation-format" name="work_format">
-            <option value="">Пока не знаю — хочу консультацию</option>
-            <option value="studio">Работа в студии</option>
-            <option value="remote">Удаленный формат</option>
-            <option value="compare">Хочу сравнить варианты</option>
-          </select>
-        </div>
-
-        <label class="check-row">
-          <input type="checkbox" name="age_confirmed" value="yes" required>
-          <span><strong>Мне исполнилось 18 лет</strong>. Я подтверждаю свое совершеннолетие.</span>
-        </label>
-
-        <label class="check-row">
-          <input type="checkbox" name="privacy_consent" value="yes" required>
-          <span>Я даю <a href="personal-data-consent.html" target="_blank" rel="noopener">согласие на обработку персональных данных</a> для ответа на обращение.</span>
-        </label>
-
-        <p class="form-privacy-note">Порядок обработки и защиты данных описан в <a href="privacy-policy.html" target="_blank" rel="noopener">политике конфиденциальности</a>.</p>
-
-        <button class="btn btn-primary form-submit" type="submit">
-          <strong>Получить консультацию агента</strong>
-          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <path d="M5 12H19M14 7L19 12L14 17" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </button>
-
-        <p class="form-feedback" aria-live="polite" hidden></p>
-
-        <p class="form-warning">Контакт не передается партнеру автоматически. Отдельное информированное согласие на передачу данных конкретной организации должно запрашиваться после выбора варианта.</p>
       </form>
     </div>
   </dialog>
@@ -3299,17 +3374,31 @@
     (() => {
       const forms = document.querySelectorAll("form[data-consultation-form]");
 
+      const restoreForm = (form, moveFocus = false) => {
+        const fields = form?.querySelector("[data-form-fields]");
+        const success = form?.querySelector("[data-form-success]");
+        const intro = form?.closest(".dialog-inner")?.querySelector("[data-form-intro]");
+        if (fields) fields.hidden = false;
+        if (success) success.hidden = true;
+        if (intro) intro.hidden = false;
+        if (moveFocus) form?.querySelector('input:not([type="hidden"]), select, textarea')?.focus();
+      };
+
       forms.forEach((form) => {
         form.addEventListener("submit", async (event) => {
           event.preventDefault();
 
           const submitButton = form.querySelector('button[type="submit"]');
           const feedback = form.querySelector(".form-feedback");
+          const fields = form.querySelector("[data-form-fields]");
+          const success = form.querySelector("[data-form-success]");
+          const intro = form.closest(".dialog-inner")?.querySelector("[data-form-intro]");
           const initialButtonContent = submitButton?.innerHTML;
 
           if (feedback) {
             feedback.hidden = true;
             feedback.className = "form-feedback";
+            feedback.textContent = "";
           }
 
           if (submitButton) {
@@ -3328,11 +3417,9 @@
             if (!response.ok || !result.ok) throw new Error(result.message || "Не удалось отправить заявку.");
 
             form.reset();
-            if (feedback) {
-              feedback.textContent = result.message || "Заявка отправлена. Агент свяжется с вами указанным способом.";
-              feedback.classList.add("form-feedback--success");
-              feedback.hidden = false;
-            }
+            if (fields) fields.hidden = true;
+            if (intro) intro.hidden = true;
+            if (success) { success.hidden = false; success.focus(); }
           } catch (error) {
             if (feedback) {
               feedback.textContent = error.message || "Произошла ошибка. Попробуйте ещё раз немного позже.";
@@ -3346,6 +3433,18 @@
             }
           }
         });
+      });
+
+      document.querySelectorAll("[data-reset-success]").forEach((button) => {
+        button.addEventListener("click", () => restoreForm(button.closest("form"), true));
+      });
+
+      document.querySelectorAll("[data-close-success]").forEach((button) => {
+        button.addEventListener("click", () => button.closest("dialog")?.close());
+      });
+
+      document.querySelectorAll("dialog").forEach((dialog) => {
+        dialog.addEventListener("close", () => restoreForm(dialog.querySelector("form[data-consultation-form]")));
       });
     })();
 
