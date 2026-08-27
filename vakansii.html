@@ -1318,7 +1318,7 @@
               <strong><span data-result-count>4</span> варианта</strong>
               <span class="live-dot">Каталог обновлён</span>
             </div>
-            <p>Здесь собраны свежие вакансии вебкам 2026 года. Каталог обновлён <time datetime="2026-08-25">25 августа 2026 года</time>; доступность конкретного места и точные условия менеджер повторно проверит перед собеседованием.</p>
+            <p>Здесь собраны свежие вакансии вебкам 2026 года. Каталог обновлён <time datetime="2026-08-26" data-catalog-update-date>26 августа 2026 года</time>; доступность конкретного места и точные условия менеджер повторно проверит перед собеседованием.</p>
           </aside>
         </div>
 
@@ -1988,6 +1988,27 @@
     <button class="privacy-notice__button privacy-notice__button--accept" type="button" data-privacy-accept>Принять</button>
   </div>
 </section>
+
+<script>
+  (() => {
+    const dateElement = document.querySelector("[data-catalog-update-date]");
+    if (!dateElement) return;
+
+    const updateDate = new Date();
+    updateDate.setDate(updateDate.getDate() - 1);
+
+    const year = updateDate.getFullYear();
+    const month = String(updateDate.getMonth() + 1).padStart(2, "0");
+    const day = String(updateDate.getDate()).padStart(2, "0");
+    const dayAndMonth = new Intl.DateTimeFormat("ru-RU", {
+      day: "numeric",
+      month: "long"
+    }).format(updateDate);
+
+    dateElement.dateTime = `${year}-${month}-${day}`;
+    dateElement.textContent = `${dayAndMonth} ${year} года`;
+  })();
+</script>
 
 <script>
   (() => {
