@@ -576,6 +576,58 @@
     }
     .vacancy-card:hover { transform: translateY(-3px); border-color: var(--border); box-shadow: 0 22px 48px rgba(0, 0, 0, .25); }
     .card-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; margin-bottom: 19px; }
+    .vacancy-card-media {
+      position: relative;
+      aspect-ratio: 2 / 1;
+      margin: 0 0 22px;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 24% 24%, rgba(212, 175, 55, .14), transparent 42%),
+        linear-gradient(135deg, var(--surface-3), #101212);
+      border: 1px solid var(--border-light);
+      border-radius: 13px;
+    }
+    .vacancy-card-media::before {
+      content: "Место для изображения вакансии";
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      padding: 22px;
+      color: var(--text-muted);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .35px;
+      text-align: center;
+    }
+    .vacancy-card-media img {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+    }
+    .vacancy-card-media img[hidden] { display: none; }
+    .vacancy-media-label {
+      position: absolute;
+      right: 12px;
+      bottom: 12px;
+      left: 12px;
+      z-index: 2;
+      width: fit-content;
+      max-width: calc(100% - 24px);
+      padding: 7px 10px;
+      color: #f8f3e8;
+      background: rgba(8, 10, 10, .78);
+      border: 1px solid rgba(255, 255, 255, .12);
+      border-radius: 7px;
+      backdrop-filter: blur(8px);
+      font-size: 9px;
+      font-weight: 700;
+      line-height: 1.4;
+    }
     .variant-id {
       color: var(--primary-light);
       font-size: 9px;
@@ -897,6 +949,7 @@
       .filter-reset { grid-column: auto; }
       .results-line { align-items: flex-start; flex-direction: column; gap: 6px; }
       .vacancy-card { padding: 21px; border-radius: 16px; }
+      .vacancy-card-media { aspect-ratio: 16 / 9; margin-bottom: 19px; }
       .card-top { flex-direction: column; gap: 10px; }
       .fact { grid-template-columns: 100px minmax(0, 1fr); gap: 12px; }
       .steps, .field-grid, .footer-main { grid-template-columns: 1fr; }
@@ -1034,7 +1087,62 @@
     .privacy-notice__actions { flex-direction: column-reverse; }
     .privacy-notice__button { width: 100%; }
   }
-  
+
+
+    /* Контрастная светлая версия уведомления */
+.privacy-notice {
+  color: #29251f;
+  border: 1px solid #d4af37;
+  border-top: 3px solid #d4af37;
+  background: #f3ecdf;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.65);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+.privacy-notice__title {
+  color: #171919;
+}
+
+.privacy-notice__text {
+  color: #575046;
+}
+
+.privacy-notice__text a {
+  color: #72580a;
+  text-decoration-color: rgba(114, 88, 10, 0.45);
+}
+
+/* Кнопка «Отклонить» */
+.privacy-notice__button {
+  color: #29251f;
+  border-color: rgba(41, 37, 31, 0.35);
+  background: rgba(255, 255, 255, 0.38);
+}
+
+.privacy-notice__button:hover {
+  color: #171919;
+  border-color: #9b7917;
+  background: rgba(212, 175, 55, 0.16);
+}
+
+/* Кнопка «Принять» */
+.privacy-notice__button--accept {
+  color: #f8f1e4;
+  border-color: #171919;
+  background: #171919;
+}
+
+.privacy-notice__button--accept:hover {
+  color: #171919;
+  border-color: #d4af37;
+  background: #d4af37;
+}
+
+.privacy-notice__button:focus-visible,
+.privacy-notice__text a:focus-visible {
+  outline-color: #8c6c0d;
+}
   
   </style>
 
@@ -1216,6 +1324,10 @@
               <span class="variant-id">Вариант SL-01</span>
               <span class="status-pill">Приём запросов открыт</span>
             </div>
+            <figure class="vacancy-card-media">
+              <img src="/assets/vacancies/sl-01.webp" width="720" height="360" loading="lazy" decoding="async" data-vacancy-photo alt="Домашнее рабочее место для удалённых эфиров с компьютера">
+              <figcaption class="vacancy-media-label">Рабочее место дома · компьютер</figcaption>
+            </figure>
             <h2>Удалённые эфиры из дома — компьютер</h2>
             <p class="card-summary">Для девушек, которым важны работа из дома, более широкие возможности настройки эфира и дистанционная поддержка на старте.</p>
             <div class="card-tags" aria-label="Краткие параметры">
@@ -1241,6 +1353,10 @@
               <span class="variant-id">Вариант SL-02</span>
               <span class="status-pill">Приём запросов открыт</span>
             </div>
+            <figure class="vacancy-card-media">
+              <img src="/assets/vacancies/sl-02.webp" width="720" height="360" loading="lazy" decoding="async" data-vacancy-photo alt="Смартфон и свет для проведения удалённых эфиров из дома">
+              <figcaption class="vacancy-media-label">Эфиры со смартфона · удалённо</figcaption>
+            </figure>
             <h2>Удалённые эфиры со смартфона</h2>
             <p class="card-summary">Стартовый мобильный формат для кандидаток без компьютера. Подходит не для всех платформ, поэтому совместимость техники проверяется заранее.</p>
             <div class="card-tags" aria-label="Краткие параметры">
@@ -1266,6 +1382,10 @@
               <span class="variant-id">Вариант SL-03</span>
               <span class="status-pill">Приём запросов открыт</span>
             </div>
+            <figure class="vacancy-card-media">
+              <img src="/assets/vacancies/sl-03.webp" width="720" height="360" loading="lazy" decoding="async" data-vacancy-photo alt="Оборудованное рабочее место для вебкам-модели в Москве">
+              <figcaption class="vacancy-media-label">Оборудованное место · Москва</figcaption>
+            </figure>
             <h2>Вакансия вебкам-модели в Москве</h2>
             <p class="card-summary">Офлайн-формат с оборудованным рабочим местом и поддержкой на площадке. Подходит тем, кто не хочет покупать технику и настраивать эфир самостоятельно.</p>
             <div class="card-tags" aria-label="Краткие параметры">
@@ -1291,6 +1411,10 @@
               <span class="variant-id">Вариант SL-04</span>
               <span class="status-pill">По наличию мест</span>
             </div>
+            <figure class="vacancy-card-media">
+              <img src="/assets/vacancies/sl-04.webp" width="720" height="360" loading="lazy" decoding="async" data-vacancy-photo alt="Пример оборудованного рабочего места в студии доступного города">
+              <figcaption class="vacancy-media-label">Офлайн-формат · город уточняется</figcaption>
+            </figure>
             <h2>Подбор студии в доступном городе</h2>
             <p class="card-summary">Персональный поиск офлайн-варианта по вашей географии. Сначала менеджер проверит, есть ли доступная студия в городе или рядом, затем покажет подтверждённые условия.</p>
             <div class="card-tags" aria-label="Краткие параметры">
@@ -1692,6 +1816,16 @@
             }
           }
         });
+      });
+    })();
+
+    (() => {
+      document.querySelectorAll("[data-vacancy-photo]").forEach((image) => {
+        const showFallback = () => { image.hidden = true; };
+        const showPhoto = () => { image.hidden = false; };
+        image.addEventListener("error", showFallback);
+        image.addEventListener("load", showPhoto);
+        if (image.complete && image.naturalWidth === 0) showFallback();
       });
     })();
 
