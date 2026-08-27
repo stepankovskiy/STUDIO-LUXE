@@ -176,7 +176,60 @@
     .privacy-notice__actions { flex-direction: column-reverse; }
     .privacy-notice__button { width: 100%; }
   }
-  
+  /* Контрастная светлая версия уведомления */
+.privacy-notice {
+  color: #29251f;
+  border: 1px solid #d4af37;
+  border-top: 3px solid #d4af37;
+  background: #f3ecdf;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.65);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+.privacy-notice__title {
+  color: #171919;
+}
+
+.privacy-notice__text {
+  color: #575046;
+}
+
+.privacy-notice__text a {
+  color: #72580a;
+  text-decoration-color: rgba(114, 88, 10, 0.45);
+}
+
+/* Кнопка «Отклонить» */
+.privacy-notice__button {
+  color: #29251f;
+  border-color: rgba(41, 37, 31, 0.35);
+  background: rgba(255, 255, 255, 0.38);
+}
+
+.privacy-notice__button:hover {
+  color: #171919;
+  border-color: #9b7917;
+  background: rgba(212, 175, 55, 0.16);
+}
+
+/* Кнопка «Принять» */
+.privacy-notice__button--accept {
+  color: #f8f1e4;
+  border-color: #171919;
+  background: #171919;
+}
+
+.privacy-notice__button--accept:hover {
+  color: #171919;
+  border-color: #d4af37;
+  background: #d4af37;
+}
+
+.privacy-notice__button:focus-visible,
+.privacy-notice__text a:focus-visible {
+  outline-color: #8c6c0d;
+}
   
   
   </style>
