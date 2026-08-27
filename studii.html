@@ -1252,7 +1252,7 @@
               <strong><span data-result-count>6</span> <span data-result-word>студий</span></strong>
               <span class="live-dot">Условия актуальны</span>
             </div>
-            <p>Условия уточнены <time datetime="2026-08-26">26 августа 2026 года</time>. Доступность места, точную схему выплат и состав поддержки менеджер повторно подтвердит перед собеседованием.</p>
+            <p>Условия уточнены <time datetime="2026-08-26" data-catalog-update-date>26 августа 2026 года</time>. Доступность места, точную схему выплат и состав поддержки менеджер повторно подтвердит перед собеседованием.</p>
           </aside>
         </div>
 
@@ -2086,6 +2086,27 @@
     <button class="privacy-notice__button privacy-notice__button--accept" type="button" data-privacy-accept>Принять</button>
   </div>
 </section>
+
+  <script>
+    (() => {
+      const dateElement = document.querySelector("[data-catalog-update-date]");
+      if (!dateElement) return;
+
+      const updateDate = new Date();
+      updateDate.setDate(updateDate.getDate() - 1);
+
+      const year = updateDate.getFullYear();
+      const month = String(updateDate.getMonth() + 1).padStart(2, "0");
+      const day = String(updateDate.getDate()).padStart(2, "0");
+      const dayAndMonth = new Intl.DateTimeFormat("ru-RU", {
+        day: "numeric",
+        month: "long"
+      }).format(updateDate);
+
+      dateElement.dateTime = `${year}-${month}-${day}`;
+      dateElement.textContent = `${dayAndMonth} ${year} года`;
+    })();
+  </script>
 
   <script>
   (() => {
