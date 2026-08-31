@@ -411,6 +411,42 @@
     .final-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 25px; }
     .final-small { display: block; margin-top: 15px; color: #968f84; font-size: 9px; }
 
+    .service-cities {
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      background: #0d1010;
+    }
+    .service-cities-inner { padding-top: 18px; padding-bottom: 18px; }
+    .service-cities details { color: #8f8a81; font-size: 10px; line-height: 1.6; }
+    .service-cities summary {
+      width: fit-content;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      list-style: none;
+      color: #8f8a81;
+      font-size: 9.5px;
+      font-weight: 700;
+      letter-spacing: 0.25px;
+    }
+    .service-cities summary::-webkit-details-marker { display: none; }
+    .service-cities summary::after { content: "+"; color: var(--primary-light); font-size: 15px; }
+    .service-cities details[open] summary::after { content: "−"; }
+    .city-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin: 14px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+    .city-list li {
+      padding: 5px 8px;
+      border: 1px solid rgba(255, 255, 255, 0.055);
+      border-radius: 6px;
+      color: #817d75;
+      background: rgba(255, 255, 255, 0.018);
+    }
     .site-footer { background: #0a0c0c; border-top: 1px solid rgba(212, 175, 55, 0.12); }
     .footer-main { display: grid; grid-template-columns: 1.25fr repeat(3, minmax(145px, 0.75fr)); gap: 34px; padding-top: 49px; padding-bottom: 42px; }
     .footer-brand p { max-width: 390px; margin: 19px 0 0; color: #928c81; font-size: 10px; line-height: 1.7; }
@@ -553,6 +589,7 @@
       .final-card p { margin-inline: 0; }
       .final-actions { display: grid; }
       .final-actions .btn { width: 100%; }
+      .service-cities-inner { padding-top: 15px; padding-bottom: 15px; }
       .footer-main { grid-template-columns: 1fr; gap: 28px; }
       .footer-brand { grid-column: auto; }
       .footer-bottom { min-height: 90px; flex-direction: column; align-items: flex-start; justify-content: center; gap: 8px; }
@@ -927,7 +964,7 @@
               <li>владелец рабочих аккаунтов, доступы и статистика;</li>
               <li>личные границы, право отказаться и порядок завершения сотрудничества.</li>
             </ul>
-            <p>После проверки формата можно <a href="/studii.html">сравнить доступные студии</a>, открыть <a href="/blog/luchshie-vebkam-studii.html">сравнение студий по критериям</a> или посмотреть <a href="/vakansii.html">актуальные варианты работы</a>. На этой странице нет рейтинга и карточек конкретных компаний, но вы можете изучить доступные варианты работы на сайте или обсудить вакансии с менеджером.</p>
+            <p>После проверки формата можно <a href="/studii.html">сравнить доступные студии</a>, открыть <a href="/blog/luchshie-vebkam-studii.html">сравнение студий по критериям</a> или посмотреть <a href="/vakansii.html">актуальные варианты работы</a>. На этой странице нет рейтинга и карточек конкретных компаний, чтобы не смешивать выбор формата с каталогом.</p>
           </section>
 
           <section id="selection" aria-labelledby="selection-title">
@@ -1006,6 +1043,17 @@
           </div>
           <small class="final-small">Консультация бесплатна и не является заявлением о приёме на работу</small>
         </div>
+      </div>
+    </section>
+
+    <section class="service-cities" aria-label="География консультаций">
+      <div class="container service-cities-inner">
+        <details>
+          <summary>Города, в которых можно получить консультацию</summary>
+          <ul class="city-list">
+            <li>Абакан</li><li>Анадырь</li><li>Архангельск</li><li>Астрахань</li><li>Барнаул</li><li>Белгород</li><li>Биробиджан</li><li>Благовещенск</li><li>Брянск</li><li>Великий Новгород</li><li>Владивосток</li><li>Владикавказ</li><li>Владимир</li><li>Волгоград</li><li>Вологда</li><li>Воронеж</li><li>Гатчина</li><li>Горно-Алтайск</li><li>Грозный</li><li>Донецк</li><li>Екатеринбург</li><li>Запорожье</li><li>Иваново</li><li>Ижевск</li><li>Иркутск</li><li>Йошкар-Ола</li><li>Казань</li><li>Калининград</li><li>Калуга</li><li>Кемерово</li><li>Киров</li><li>Кострома</li><li>Красногорск</li><li>Краснодар</li><li>Красноярск</li><li>Курган</li><li>Курск</li><li>Кызыл</li><li>Липецк</li><li>Луганск</li><li>Магадан</li><li>Магас</li><li>Майкоп</li><li>Махачкала</li><li>Москва</li><li>Мурманск</li><li>Нальчик</li><li>Нарьян-Мар</li><li>Нижний Новгород</li><li>Новосибирск</li><li>Омск</li><li>Оренбург</li><li>Орёл</li><li>Пенза</li><li>Пермь</li><li>Петрозаводск</li><li>Петропавловск-Камчатский</li><li>Псков</li><li>Ростов-на-Дону</li><li>Рязань</li><li>Салехард</li><li>Самара</li><li>Санкт-Петербург</li><li>Саранск</li><li>Саратов</li><li>Севастополь</li><li>Симферополь</li><li>Смоленск</li><li>Ставрополь</li><li>Сыктывкар</li><li>Тамбов</li><li>Тверь</li><li>Томск</li><li>Тула</li><li>Тюмень</li><li>Улан-Удэ</li><li>Ульяновск</li><li>Уфа</li><li>Хабаровск</li><li>Ханты-Мансийск</li><li>Херсон</li><li>Чебоксары</li><li>Челябинск</li><li>Черкесск</li><li>Чита</li><li>Элиста</li><li>Южно-Сахалинск</li><li>Якутск</li><li>Ярославль</li>
+          </ul>
+        </details>
       </div>
     </section>
   </main>
