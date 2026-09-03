@@ -11,5 +11,10 @@
       "destination": "/vakansii.html",
       "statusCode": 301
     }
+    {
+  "source": "/blog/kak-stat-webcam-modelyu.html/",
+  "destination": "/blog/kak-stat-webcam-modelyu.html",
+  "permanent": true
+}
   ]
 }
