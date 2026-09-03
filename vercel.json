@@ -4,17 +4,17 @@
     {
       "source": "/index.html",
       "destination": "/",
-      "statusCode": 301
+      "permanent": true
     },
     {
       "source": "/vakansii.html/",
       "destination": "/vakansii.html",
-      "statusCode": 301
-    }
+      "permanent": true
+    },
     {
-  "source": "/blog/kak-stat-webcam-modelyu.html/",
-  "destination": "/blog/kak-stat-webcam-modelyu.html",
-  "permanent": true
-}
+      "source": "/blog/kak-stat-webcam-modelyu.html/",
+      "destination": "/blog/kak-stat-webcam-modelyu.html",
+      "permanent": true
+    }
   ]
 }
