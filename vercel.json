@@ -8,3 +8,14 @@
     }
   ]
 }
+
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "redirects": [
+    {
+      "source": "/vakansii.html/",
+      "destination": "/vakansii.html",
+      "statusCode": 301
+    }
+  ]
+}
