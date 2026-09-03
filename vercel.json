@@ -5,13 +5,7 @@
       "source": "/index.html",
       "destination": "/",
       "statusCode": 301
-    }
-  ]
-}
-
-{
-  "$schema": "https://openapi.vercel.sh/vercel.json",
-  "redirects": [
+    },
     {
       "source": "/vakansii.html/",
       "destination": "/vakansii.html",
