@@ -15,6 +15,11 @@
       "source": "/blog/kak-stat-webcam-modelyu.html/",
       "destination": "/blog/kak-stat-webcam-modelyu.html",
       "permanent": true
-    }
+    },
+    {
+  "source": "/konsultatsiya.html/",
+  "destination": "/konsultatsiya.html",
+  "statusCode": 301
+}
   ]
 }
